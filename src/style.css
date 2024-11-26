@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding:0 ;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+
+}
+
+
+
+
+body{
+    min-width: 320px;
+    min-height: 100vh;
+    background-image: url(./assets/img/frontpage_bg\ \(1\).png);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center; 
+    margin: 0px;
+ 
+}
+.content{
+   display: grid;
+   grid-template-columns: 70% 30%;
+   gap: 20px;
+   padding: 20px;
+}
+
+.content-fooot{
+    background-color: aqua;
+}
+
+.form-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.form-content form{
+    max-width: 90rem;
+    border-radius: .5rem;
+    box-shadow: 13px 13px 20px #cbced1,
+    -13px -13px 20px #ffffff;
+    padding: 1.5rem;
+   
+    margin-top: 2px;
+}
+
+.form-content form .input-box label{
+    display: block;
+    color: #EFD174;
+    padding: .5rem 0;
+    font-size: .9rem;
+}
+.form-content form .input-box input ,
+.form-content form .input-box select{
+border-radius: 5rem;
+padding: .5rem;
+font-size: 1.rem;
+text-transform: none;
+margin-bottom: 1rem;
+width: 90%;
+box-shadow: 
+inset 8px 8px 8px #cbced1,
+inset -8px -8px 8px #ffffff
+}
+.form-content form .input-box input:focus,
+.form-content form .input-box input:hover{
+    border: .2rem solid  #EFD174;
+}
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+    box-shadow: inset 8px 8px 8px #EFD174,
+    inset -8px -8px 8px #EFD174;
+}
+.btn:hover{
+    border: #cbced1;
+}
