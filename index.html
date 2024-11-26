@@ -13,16 +13,95 @@
     <div class="input-groups">
         <!--img-->
         <div class="input-box">
-            <img >
+            
          </div>
-         <!---->
+         <!--name-->
          <div class="input-box">
             <label for="name" >Name</label>
             <input type="text" name="name" id="name">
          </div>
+         <!--photo-->
          <div class="input-box">
-            <label for="name" >Name</label>
-            <input type="text" name="name" id="name">
+            <label for="rating" >photo</label>
+            <select id="mySelect">
+                <option value="1" data-image="https://cdn.sofifa.net/flags/ar.png">Ar </option>
+                <option value="2" data-image="https://cdn.sofifa.net/flags/pt.png">Pt </option>
+                <option value="3" data-image="https://cdn.sofifa.net/flags/be.png"> Be</option>
+                <option value="4" data-image="https://cdn.sofifa.net/flags/fr.png">Fr </option>
+                <option value="5" data-image="https://cdn.sofifa.net/flags/nl.png">Nl </option>
+                <option value="6" data-image="https://cdn.sofifa.net/flags/de.png"> Be</option>
+                <option value="7" data-image="https://cdn.sofifa.net/flags/eg.png">Eg </option>
+                <option value="8" data-image="https://cdn.sofifa.net/flags/de.png">De </option>
+                <option value="9" data-image="https://cdn.sofifa.net/flags/si.png"> Si</option>
+                <option value="10" data-image="https://cdn.sofifa.net/flags/hr.png"> Hr</option>
+                <option value="11" data-image="https://cdn.sofifa.net/flags/be.png"> </option>
+
+              </select>
+         </div>
+         <!--position-->
+         <div class="input-box">
+            <label for="position" >position</label>
+            <select name="position" id="position">
+                <option value="1">GK</option>
+                <option value="2">CB</option>
+                <option value="3">CM</option>
+                <option value="4">LM</option>
+                <option value="5">CAM</option>
+                <option value="6">RM</option>
+                <option value="7">ST</option>
+            </select>
+         </div>
+         <!--nationality-->
+         <div class="input-box">
+            <label for="nationality">Nationality</label>
+            <select name="nationality" id="nationality">
+                <option value="" disabled selected>Select your nationality</option>
+                <option value="1">American</option>
+                <option value="2">Canadian</option>
+                <option value="3">British</option>
+                <option value="4">French</option>
+                <option value="5">German</option>
+                <option value="6">Indian</option>
+                <option value="7">Australian</option>
+                <option value="8">Mexican</option>
+                <option value="9">Brazilian</option>
+                <option value="10">Spanish</option>
+                <option value="11">Italian</option>
+                <option value="12">Chinese</option>
+                <option value="13">Japanese</option>
+                <option value="14">Russian</option>
+                <option value="15">South African</option>
+            </select>
+        </div>
+        
+         <!--rat/pac,sho,pass,drib,def,phy-->
+         <div class="input-box">
+            <label for="rating" >rating</label>
+            <input type="number" name="rating" id="rating">
+         </div>
+         <div class="input-box">
+            <label for="pace" >pace</label>
+            <input type="number" name="pace" id="pace">
+         </div>
+         <div class="input-box">
+            <label for="shooting" >shooting</label>
+            <input type="number" name="shooting" id="shooting">
+         </div>
+         <div class="input-box">
+            <label for="passing" >passing</label>
+            <input type="number" name="passing" id="passing">
+         </div>
+         <div class="input-box">
+            <label for="dribbling" >dribbling</label>
+            <input type="number" name="dribbling" id="dribbling" placeholder="dribbling">
+         </div>
+         <div class="input-box">
+            <label for="defending" >defending</label>
+            <input type="number" name="defending" id="defending" placeholder="defending">
+         </div>
+         <div class="input-box">
+            <label for="physical" >physical</label>
+            <input type="number" name="physical" id="physical" placeholder="defending">
          </div>
          
     </div>
