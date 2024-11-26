@@ -187,6 +187,7 @@
 <section class="form-content">
 <form id="form-content" >
     <div class="input-groups">
+        <div class="input-groups-flex1">
         <!--img-->
         <div class="input-box">
             
@@ -196,9 +197,47 @@
             <label for="name" >Name</label>
             <input type="text" name="name" id="name">
          </div>
-         <!--photo-->
+        
+        
+         <!--rat/pac,sho,pass,drib,def,phy-->
+         <div class="input-groub-box">
          <div class="input-box">
-            <label for="rating" >photo</label>
+            <label for="rating" >rating</label>
+            <input type="number" name="rating" id="rating">
+         </div>
+         <div class="input-box">
+            <label for="pace" >pace</label>
+            <input type="number" name="pace" id="pace">
+         </div>
+        </div>
+        <div class="input-groub-box">
+         <div class="input-box">
+            <label for="shooting" >shooting</label>
+            <input type="number" name="shooting" id="shooting">
+         </div>
+         <div class="input-box">
+            <label for="passing" >passing</label>
+            <input type="number" name="passing" id="passing">
+         </div>
+         </div>
+         <div class="input-groub-box">
+         <div class="input-box">
+            <label for="dribbling" >dribbling</label>
+            <input type="number" name="dribbling" id="dribbling" placeholder="dribbling">
+         </div>
+         <div class="input-box">
+            <label for="defending" >defending</label>
+            <input type="number" name="defending" id="defending" placeholder="defending">
+         </div>
+         <div class="input-box">
+            <label for="physical" >physical</label>
+            <input type="number" name="physical" id="physical" placeholder="defending">
+         </div>
+         </div>
+          <!--select-flag-->
+          <div class="input-box">
+            <label for="flag" >flag</label>
+            <!--select-->
             <select id="mySelect">
                 <option value="1" data-image="https://cdn.sofifa.net/flags/ar.png">Ar </option>
                 <option value="2" data-image="https://cdn.sofifa.net/flags/pt.png">Pt </option>
@@ -214,7 +253,31 @@
 
               </select>
          </div>
-         <!--position-->
+        
+         <!--select-club-->
+         <div class="input-box">
+            <label for="football-club">Football Club</label>
+            <select name="football-club" id="football-club">
+                <option value="" disabled selected>Select your football club</option>
+                <option value="1">FC Barcelona</option>
+                <option value="2">Real Madrid</option>
+                <option value="3">Manchester United</option>
+                <option value="4">Liverpool FC</option>
+                <option value="5">Bayern Munich</option>
+                <option value="6">Paris Saint-Germain</option>
+                <option value="7">Juventus</option>
+                <option value="8">AC Milan</option>
+                <option value="9">Chelsea FC</option>
+                <option value="10">Arsenal FC</option>
+                <option value="11">Manchester City</option>
+                <option value="12">Tottenham Hotspur</option>
+                <option value="13">Borussia Dortmund</option>
+                <option value="14">Atlético Madrid</option>
+                <option value="15">Inter Milan</option>
+            </select>
+        </div>
+        
+         <!--select-position-->
          <div class="input-box">
             <label for="position" >position</label>
             <select name="position" id="position">
@@ -232,7 +295,7 @@
 
             </select>
          </div>
-         <!--nationality-->
+         <!--select-nationality-->
          <div class="input-box">
             <label for="nationality">Nationality</label>
             <select name="nationality" id="nationality">
@@ -254,44 +317,252 @@
                 <option value="15">South African</option>
             </select>
         </div>
-        
-         <!--rat/pac,sho,pass,drib,def,phy-->
-         <div class="input-box">
-            <label for="rating" >rating</label>
-            <input type="number" name="rating" id="rating">
-         </div>
-         <div class="input-box">
-            <label for="pace" >pace</label>
-            <input type="number" name="pace" id="pace">
-         </div>
-         <div class="input-box">
-            <label for="shooting" >shooting</label>
-            <input type="number" name="shooting" id="shooting">
-         </div>
-         <div class="input-box">
-            <label for="passing" >passing</label>
-            <input type="number" name="passing" id="passing">
-         </div>
-         <div class="input-box">
-            <label for="dribbling" >dribbling</label>
-            <input type="number" name="dribbling" id="dribbling" placeholder="dribbling">
-         </div>
-         <div class="input-box">
-            <label for="defending" >defending</label>
-            <input type="number" name="defending" id="defending" placeholder="defending">
-         </div>
-         <div class="input-box">
-            <label for="physical" >physical</label>
-            <input type="number" name="physical" id="physical" placeholder="defending">
-         </div>
-         
+        <input type="submit" value="order now" class="btn">
+ 
     </div>
-    <input type="submit" value="order now" class="btn">
-
 </form>
 
 </section>
+<div class="content-chengment">
+<div class="joueus-change">
+    
+        <div class="card-chengment">
+        <button class="cardbutton button-reset" aria-label="Card Button">
+            <!-- Image -->
+            <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+            
+            <!-- Add Icon Wrapper -->
+            <div class="player-add-icon-wrapper-modern">
+                <span class="display-contents">
+                    <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                        <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                    </svg>
+                </span>
+                <div class="plus-sign">+</div>
+            </div>
+        </button>
+    </div>
+    <div class="card-chengment">
+        <button class="cardbutton button-reset" aria-label="Card Button">
+            <!-- Image -->
+            <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+            
+            <!-- Add Icon Wrapper -->
+            <div class="player-add-icon-wrapper-modern">
+                <span class="display-contents">
+                    <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                        <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                    </svg>
+                </span>
+                <div class="plus-sign">+</div>
+            </div>
+        </button>
+        </div>
+        <div class="card-chengment">
+        <button class="cardbutton button-reset" aria-label="Card Button">
+            <!-- Image -->
+            <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+            
+            <!-- Add Icon Wrapper -->
+            <div class="player-add-icon-wrapper-modern">
+                <span class="display-contents">
+                    <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                        <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                    </svg>
+                </span>
+                <div class="plus-sign">+</div>
+            </div>
+        </button>
+        </div>
+        <div class="card-chengment">
+        <button class="cardbutton button-reset" aria-label="Card Button">
+            <!-- Image -->
+            <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+            
+            <!-- Add Icon Wrapper -->
+            <div class="player-add-icon-wrapper-modern">
+                <span class="display-contents">
+                    <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                        <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                    </svg>
+                </span>
+                <div class="plus-sign">+</div>
+            </div>
+        </button>
+        </div>
+        <div class="card-chengment">
+        <button class="cardbutton button-reset" aria-label="Card Button">
+            <!-- Image -->
+            <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+            
+            <!-- Add Icon Wrapper -->
+            <div class="player-add-icon-wrapper-modern">
+                <span class="display-contents">
+                    <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                        <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                    </svg>
+                </span>
+                <div class="plus-sign">+</div>
+            </div>
+        </button>
+        </div>
+        <div class="card-chengment">
+
+        <button class="cardbutton button-reset" aria-label="Card Button">
+            <!-- Image -->
+            <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+            
+            <!-- Add Icon Wrapper -->
+            <div class="player-add-icon-wrapper-modern">
+                <span class="display-contents">
+                    <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                        <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                    </svg>
+                </span>
+                <div class="plus-sign">+</div>
+            </div>
+        </button>
+        </div>
+
 </div>
+<div class="joueus-change">
+    
+    <div class="card-chengment">
+    <button class="cardbutton button-reset" aria-label="Card Button">
+        <!-- Image -->
+        <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+        
+        <!-- Add Icon Wrapper -->
+        <div class="player-add-icon-wrapper-modern">
+            <span class="display-contents">
+                <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                    <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                </svg>
+            </span>
+            <div class="plus-sign">+</div>
+        </div>
+    </button>
+</div>
+<div class="card-chengment">
+    <button class="cardbutton button-reset" aria-label="Card Button">
+        <!-- Image -->
+        <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+        
+        <!-- Add Icon Wrapper -->
+        <div class="player-add-icon-wrapper-modern">
+            <span class="display-contents">
+                <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                    <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                </svg>
+            </span>
+            <div class="plus-sign">+</div>
+        </div>
+    </button>
+    </div>
+    <div class="card-chengment">
+    <button class="cardbutton button-reset" aria-label="Card Button">
+        <!-- Image -->
+        <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+        
+        <!-- Add Icon Wrapper -->
+        <div class="player-add-icon-wrapper-modern">
+            <span class="display-contents">
+                <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                    <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                </svg>
+            </span>
+            <div class="plus-sign">+</div>
+        </div>
+    </button>
+    </div>
+  
+   
+
+</div>
+<div class="joueus-change">
+    
+    <div class="card-chengment">
+    <button class="cardbutton button-reset" aria-label="Card Button">
+        <!-- Image -->
+        <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+        
+        <!-- Add Icon Wrapper -->
+        <div class="player-add-icon-wrapper-modern">
+            <span class="display-contents">
+                <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                    <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                </svg>
+            </span>
+            <div class="plus-sign">+</div>
+        </div>
+    </button>
+</div>
+<div class="card-chengment">
+    <button class="cardbutton button-reset" aria-label="Card Button">
+        <!-- Image -->
+        <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+        
+        <!-- Add Icon Wrapper -->
+        <div class="player-add-icon-wrapper-modern">
+            <span class="display-contents">
+                <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                    <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                </svg>
+            </span>
+            <div class="plus-sign">+</div>
+        </div>
+    </button>
+    </div>
+    <div class="card-chengment">
+    <button class="cardbutton button-reset" aria-label="Card Button">
+        <!-- Image -->
+        <img class="placeholder-img" src="./src/assets/img/back2.webp" alt="Card Image">
+        
+        <!-- Add Icon Wrapper -->
+        <div class="player-add-icon-wrapper-modern">
+            <span class="display-contents">
+                <svg class="icon" viewBox="0 0 36 42" fill="none" width="36">
+                    <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5"></path>
+
+                </svg>
+            </span>
+            <div class="plus-sign">+</div>
+        </div>
+    </button>
+    </div>
+  
+   
+
+</div>
+
+</div>
+
+
+    <!-- Conteneur pour la vidéo -->
+    <div id="video-container">
+        <video id="background-video" autoplay loop muted>
+            <source src="votre-video.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la balise vidéo.
+        </video>
+    </div>
+
+    <!-- Joueurs -->
+    <div class="player" id="player1"></div>
+    <div class="player" id="player2"></div>
+    <div class="player" id="player3"></div>
+
+    <script src="./script/main.js"></script>
 
 
 </body>
