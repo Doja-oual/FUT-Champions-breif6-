@@ -1,26 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const player1 = document.getElementById('player1');
-    const player2 = document.getElementById('player2');
-    const player3 = document.getElementById('player3');
+ let playerBtn=document.getElementById("btn-player");
+ let gardienBtn=document.getElementById("btn-gardien")
 
-    // Fonction pour déplacer un joueur
-    function movePlayer(player, x, y) {
-        player.style.transform = `translate(${x}px, ${y}px)`;
-    }
+ const name = document.getElementById("name");
+ const rating = document.getElementById("rating");
+ const pace = document.getElementById("pace");
+ const shooting = document.getElementById("shooting");
+ const passing = document.getElementById("passing");
+ const dribbling = document.getElementById("dribbling");
+ const defending = document.getElementById("defending");
+ const physical = document.getElementById("physical");
+ const flag = document.getElementById("mySelect");
+ const footballClub = document.getElementById("football-club");
+ const position = document.getElementById("position");
+ const nationality = document.getElementById("nationality");
+ 
 
-    // Position initiale des joueurs
-    let x1 = 100, y1 = 100;
-    let x2 = 300, y2 = 200;
-    let x3 = 500, y3 = 300;
-
-    // Mise à jour des positions des joueurs toutes les 50ms
-    setInterval(function() {
-        x1 += 5; y1 += 5;
-        x2 -= 5; y2 += 5;
-        x3 += 10; y3 -= 5;
-
-        movePlayer(player1, x1, y1);
-        movePlayer(player2, x2, y2);
-        movePlayer(player3, x3, y3);
-    }, 50);  // Répétition toutes les 50ms
-});
