@@ -17,18 +17,18 @@ const BackgroundImgInput = document.getElementById("");
 
 // array pourles players pour l'ajoute
 let players = [];
-//  function savePlayerslocalstorage() {
-//     localStorage.setItem("players", JSON.stringify(players));
-//   }
+ function savePlayerslocalstorage() {
+    localStorage.setItem("players", JSON.stringify(players));
+  }
 
-//fonction de Récupérer la liste des tâches de  LocalStorage -------------//
-//   function LocalStorageplayerform() {
-//     const saveplayer = localStorage.getItem("players");
-//     if (saveplayer) {
-//       players = JSON.parse(saveplayer);
-//       players.forEach(affichiePlayers);
-//     }
-//   }
+// fonction de Récupérer la liste des tâches de  LocalStorage -------------//
+  function LocalStorageplayerform() {
+    const saveplayer = localStorage.getItem("players");
+    if (saveplayer) {
+      players = JSON.parse(saveplayer);
+      players.forEach(affichiePlayers);
+    }
+  }
 
 //fonction d'ajoute
 
@@ -67,51 +67,54 @@ function affichiePlayers(player) {
   const playersCard = document.createElement("div");
   playersCard.classList.add("player-card");
   playersCard.innerHTML = `
-<div class="sub__player">
-              <div class="img-background">
-                <img src="${ player.BackgroundImg || "./src/assets/img/template-3.png"
-                }" alt="Background Image">
-              </div>
-              <div class="card-header">
-                <span class="rating">${player.Rating}</span>
-                <span class="position">${player.Position}</span>
-              </div>
-              <div class="player-image">
-                <img src="${ player.PlayerImg || "./src/assets/img/joueur/federico.png"
-                }" alt="Player Image">
-              </div>
-              <div class="card-content">
-                <div class="player-name">${player.Name}</div>
-                <div class="player-stats">
-                  <div class="stat">
-                    <span class="value">${ player.Pace }</span> PAC
-                  </div>
-                  <div class="stat">
-                    <span class="value">${ player.Shooting }</span> SHO
-                  </div>
-                  <div class="stat">
-                    <span class="value">${ player.Passing }</span> PAS
-                  </div>
-                  <div class="stat">
-                    <span class="value">${ player.Dribbling }</span> DRI
-                  </div>
-                  <div class="stat">
-                    <span class="value">${ player.Defending }</span> DEF
-                  </div>
-                  <div class="stat">
-                    <span class="value">${ player.Physical }</span> PHY
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <img src="${player.Flag}" alt="Nation" class="nation" />
-                  <img src="${ player.LeagueImg ||
-                  "https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png" }"
-                  alt="League" class="league"> <img src="${ player.ClubImg ||
-                  "https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png" }"
-                  alt="Club" class="club">
-                </div>
-              </div>
-          </div>
+<div class="img-background">
+            <img src="${
+              player.BackgroundImg || "./src/assets/img/template-3.png"
+            }" alt="Background Image">
+        </div>
+        <div class="card-header">
+            <span class="rating">${player.Rating}</span>
+            <span class="position">${player.Position}</span>
+        </div>
+        <div class="player-image">
+            <img src="${
+              player.PlayerImg || "./src/assets/img/joueur/federico.png"
+            }" alt="Player Image">
+        </div>
+        <div class="card-content">
+            <div class="player-name">${player.Name}</div>
+            <div class="player-stats">
+                <div class="stat"><span class="value">${
+                  player.Pace
+                }</span> PAC</div>
+                <div class="stat"><span class="value">${
+                  player.Shooting
+                }</span> SHO</div>
+                <div class="stat"><span class="value">${
+                  player.Passing
+                }</span> PAS</div>
+                <div class="stat"><span class="value">${
+                  player.Dribbling
+                }</span> DRI</div>
+                <div class="stat"><span class="value">${
+                  player.Defending
+                }</span> DEF</div>
+                <div class="stat"><span class="value">${
+                  player.Physical
+                }</span> PHY</div>
+            </div>
+            <div class="card-footer">
+                <img src="${player.Flag}" alt="Nation" class="nation">
+                <img src="${
+                  player.LeagueImg ||
+                  "https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png"
+                }" alt="League" class="league">
+                <img src="${
+                  player.ClubImg ||
+                  "https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png"
+                }" alt="Club" class="club">
+            </div>
+        </div>
     `;
   Changment.appendChild(playersCard);
 }
