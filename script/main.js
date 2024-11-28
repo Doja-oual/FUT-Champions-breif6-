@@ -1,27 +1,27 @@
- let playerBtn=document.getElementById("btn-player");
- let gardienBtn=document.getElementById("btn-gardien")
-const form =document.getElementById("form-content")
- const name = document.getElementById("name");
- const rating = document.getElementById("rating");
- const pace = document.getElementById("pace");
- const shooting = document.getElementById("shooting");
- const passing = document.getElementById("passing");
- const dribbling = document.getElementById("dribbling");
- const defending = document.getElementById("defending");
- const physical = document.getElementById("physical");
- const flag = document.getElementById("mySelect");
- const footballClub = document.getElementById("football-club");
- const position = document.getElementById("position");
- const nationality = document.getElementById("nationality");
-const BackgroundImgInput=document.getElementById("")
- 
-// array pourles players pour l'ajoute 
- let players=[];
+let playerBtn = document.getElementById("btn-player");
+let gardienBtn = document.getElementById("btn-gardien");
+const form = document.getElementById("form-content");
+const name = document.getElementById("name");
+const rating = document.getElementById("rating");
+const pace = document.getElementById("pace");
+const shooting = document.getElementById("shooting");
+const passing = document.getElementById("passing");
+const dribbling = document.getElementById("dribbling");
+const defending = document.getElementById("defending");
+const physical = document.getElementById("physical");
+const flag = document.getElementById("mySelect");
+const footballClub = document.getElementById("football-club");
+const position = document.getElementById("position");
+const nationality = document.getElementById("nationality");
+const BackgroundImgInput = document.getElementById("");
+
+// array pourles players pour l'ajoute
+let players = [];
 //  function savePlayerslocalstorage() {
 //     localStorage.setItem("players", JSON.stringify(players));
 //   }
-  
-  //fonction de Récupérer la liste des tâches de  LocalStorage -------------//
+
+//fonction de Récupérer la liste des tâches de  LocalStorage -------------//
 //   function LocalStorageplayerform() {
 //     const saveplayer = localStorage.getItem("players");
 //     if (saveplayer) {
@@ -29,83 +29,99 @@ const BackgroundImgInput=document.getElementById("")
 //       players.forEach(affichiePlayers);
 //     }
 //   }
-  
 
- //fonction d'ajoute
+//fonction d'ajoute
 
- function addPlayers(){
-    // const backgroundImg = backgroundImgInput.value.trim() || './src/assets/img/template-3.png'; // Default if empty
-// if(!Validation()){
-// return;
-// }
-//    else{ 
-    const playerInfo = {
-        id: Date.now(),
-        Name: name.value.trim(),
-        Rating: rating.value,
-        Pace: pace.value,
-        Shooting: shooting.value,
-        Passing: passing.value,
-        Dribbling: dribbling.value,
-        Defending: defending.value,
-        Physical: physical.value,
-        Flag: flag.value,
-        FootballClub: footballClub.value,
-        Position: position.value,
-        Nationality: nationality.value
-    };
-    players.push(playerInfo);
-    affichiePlayers(playerInfo);
-    savePlayerslocalstorage();
-// }
-    form.reset();
-    
- }
+function addPlayers() {
+  // const backgroundImg = backgroundImgInput.value.trim() || './src/assets/img/template-3.png'; // Default if empty
+  // if(!Validation()){
+  // return;
+  // }
+  //    else{
+  const playerInfo = {
+    id: Date.now(),
+    Name: name.value.trim(),
+    Rating: rating.value,
+    Pace: pace.value,
+    Shooting: shooting.value,
+    Passing: passing.value,
+    Dribbling: dribbling.value,
+    Defending: defending.value,
+    Physical: physical.value,
+    Flag: flag.value,
+    FootballClub: footballClub.value,
+    Position: position.value,
+    Nationality: nationality.value,
+  };
+  players.push(playerInfo);
+  affichiePlayers(playerInfo);
+  savePlayerslocalstorage();
+  // }
+  form.reset();
+}
 
- //fonction affichie players
+//fonction affichie players
 
- function affichiePlayers(player){
-    const Changment=document.getElementById("content-chengment");
-const playersCard=document.createElement("div");
-playersCard.classList.add("player-card");
-playersCard.innerHTML=`
-<div class="img-background">
-            <img src="${player.BackgroundImg || './src/assets/img/template-3.png'}" alt="Background Image">
-        </div>
-        <div class="card-header">
-            <span class="rating">${player.Rating}</span>
-            <span class="position">${player.Position}</span>
-        </div>
-        <div class="player-image">
-            <img src="${player.PlayerImg || './src/assets/img/joueur/federico.png'}" alt="Player Image">
-        </div>
-        <div class="card-content">
-            <div class="player-name">${player.Name}</div>
-            <div class="player-stats">
-                <div class="stat"><span class="value">${player.Pace}</span> PAC</div>
-                <div class="stat"><span class="value">${player.Shooting}</span> SHO</div>
-                <div class="stat"><span class="value">${player.Passing}</span> PAS</div>
-                <div class="stat"><span class="value">${player.Dribbling}</span> DRI</div>
-                <div class="stat"><span class="value">${player.Defending}</span> DEF</div>
-                <div class="stat"><span class="value">${player.Physical}</span> PHY</div>
-            </div>
-            <div class="card-footer">
-                <img src="${player.Flag}" alt="Nation" class="nation">
-                <img src="${player.LeagueImg || 'https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png'}" alt="League" class="league">
-                <img src="${player.ClubImg || 'https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png'}" alt="Club" class="club">
-            </div>
-        </div>
+function affichiePlayers(player) {
+  const Changment = document.getElementById("content-chengment");
+  const playersCard = document.createElement("div");
+  playersCard.classList.add("player-card");
+  playersCard.innerHTML = `
+<div class="sub__player">
+              <div class="img-background">
+                <img src="${ player.BackgroundImg || "./src/assets/img/template-3.png"
+                }" alt="Background Image">
+              </div>
+              <div class="card-header">
+                <span class="rating">${player.Rating}</span>
+                <span class="position">${player.Position}</span>
+              </div>
+              <div class="player-image">
+                <img src="${ player.PlayerImg || "./src/assets/img/joueur/federico.png"
+                }" alt="Player Image">
+              </div>
+              <div class="card-content">
+                <div class="player-name">${player.Name}</div>
+                <div class="player-stats">
+                  <div class="stat">
+                    <span class="value">${ player.Pace }</span> PAC
+                  </div>
+                  <div class="stat">
+                    <span class="value">${ player.Shooting }</span> SHO
+                  </div>
+                  <div class="stat">
+                    <span class="value">${ player.Passing }</span> PAS
+                  </div>
+                  <div class="stat">
+                    <span class="value">${ player.Dribbling }</span> DRI
+                  </div>
+                  <div class="stat">
+                    <span class="value">${ player.Defending }</span> DEF
+                  </div>
+                  <div class="stat">
+                    <span class="value">${ player.Physical }</span> PHY
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <img src="${player.Flag}" alt="Nation" class="nation" />
+                  <img src="${ player.LeagueImg ||
+                  "https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png" }"
+                  alt="League" class="league"> <img src="${ player.ClubImg ||
+                  "https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png" }"
+                  alt="Club" class="club">
+                </div>
+              </div>
+          </div>
     `;
-    Changment.appendChild(playersCard);
+  Changment.appendChild(playersCard);
+}
 
- }
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  addPlayers();
+});
 
- form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    addPlayers();
-})
-
-// fonction de validation la formulaire 
+// fonction de validation la formulaire
 // function validation() {
 //     let isValide = true;
 //     resetErrors(); // Fonction pour réinitialiser les erreurs (si elle existe)
