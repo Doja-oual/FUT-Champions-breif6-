@@ -11,9 +11,9 @@
 
     <div class="content">
       <!--section-1/change des joueurs -->
-      <section class="content-fooot">
-        <div class="goalkeeper">
-          <button class="cardbutton button-reset" aria-label="Card Button">
+      <section class="content-fooot" id="content-fooot">
+        <div class="goalkeeper" id="goalkeeper">
+          <button id="btn-goalkeeper"  class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
               class="placeholder-img"
@@ -36,8 +36,8 @@
             </div>
           </button>
         </div>
-        <div class="center-back1">
-          <button class="cardbutton button-reset" aria-label="Card Button">
+        <div class="center-back1" id="center-back1">
+          <button id="center-back1" class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
               class="placeholder-img"
@@ -59,7 +59,7 @@
             </div>
           </button>
         </div>
-        <div class="center-back2">
+        <div class="center-back2" id="center-back2">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -83,7 +83,7 @@
             </div>
           </button>
         </div>
-        <div class="center-back3">
+        <div class="center-back3" id="center-back3">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -107,7 +107,7 @@
             </div>
           </button>
         </div>
-        <div class="right-midfield">
+        <div class="right-midfield" id="right-midfield">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -131,7 +131,7 @@
             </div>
           </button>
         </div>
-        <div class="center-midfield1">
+        <div class="center-midfield1" id="center-midfield1">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -155,7 +155,7 @@
             </div>
           </button>
         </div>
-        <div class="center-midfield2">
+        <div class="center-midfield2" id="center-midfield2">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -179,7 +179,7 @@
             </div>
           </button>
         </div>
-        <div class="left-midfield">
+        <div class="left-midfield" id="left-midfield">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -203,7 +203,7 @@
             </div>
           </button>
         </div>
-        <div class="attacking-midfield">
+        <div class="attacking-midfield" id="attacking-midfield">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -227,7 +227,7 @@
             </div>
           </button>
         </div>
-        <div class="striker1">
+        <div class="striker1" id="striker1">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -251,7 +251,7 @@
             </div>
           </button>
         </div>
-        <div class="striker2">
+        <div class="striker2" id="striker2">
           <button class="cardbutton button-reset" aria-label="Card Button">
             <!-- Image -->
             <img
@@ -294,7 +294,24 @@
           <div class="input-groups">
             <div class="input-groups-flex1">
               <!--img-->
-              <div class="input-box"></div>
+              <div class="input-box">
+                <label for="Squad info ">Squad info </label>
+                <select name="SquadInfo" id="SquadInfo">
+                    <option value="1">3-4-1-2</option>
+                    <option value="1">3-4-1-2</option>
+                    <option value="2">4-3-3</option>
+                    <option value="3">4-4-2</option>
+                    <option value="4">4-2-3-1</option>
+                    <option value="5">3-5-2</option>
+                    <option value="6">5-3-2</option>
+                    <option value="7">4-1-4-1</option>
+                    <option value="8">3-4-2-1</option>
+                    <option value="9">5-4-1</option>
+                    <option value="10">4-4-1-1</option>
+
+                    
+                </select>
+              </div>
               <!--name-->
               <div class="input-box">
                 <label for="name">Name</label>
@@ -451,17 +468,20 @@
                 <div class="input-box">
                   <label for="position">position</label>
                   <select name="position" id="position">
-                    <option value="1">GK</option>
-                    <option value="2">CB1</option>
-                    <option value="3">CB2</option>
-                    <option value="11">CB3</option>
-                    <option value="4">CM1</option>
-                    <option value="5">CM2</option>
-                    <option value="6">LM</option>
-                    <option value="7">CAM</option>
-                    <option value="8">RM</option>
-                    <option value="9">ST1</option>
-                    <option value="10">ST2</option>
+                    <option value="chang">chang</option>
+                    <option value="CB1">CB1</option>
+                    <option value="CB2">CB2</option>
+                    <option value="CB3">CB3</option>
+                    <option value="CM1">CM1</option>
+                    <option value="CM2">CM2</option>
+                    <option value="LM">LM</option>
+                    <option value="CAM">CAM</option>
+                    <option value="RM">RM</option>
+                    <option value="ST1">ST1</option>
+                    <option value="ST2">ST2</option>
+                  
+
+
                   </select>
                 </div>
                 <!--select-nationality-->
@@ -488,7 +508,7 @@
                 </div>
               </div>
 
-              <input type="submit" value="order now" class="btn" />
+              <input type="submit" value="add player" class="btn" />
             </div>
           </div>
         </form>
@@ -499,36 +519,7 @@
 
           
     </div>
-    <!-- <div class="fifa-card">
-   
-<div class="img-background">
-    <img src="./src/assets/img/template-3.png">
-</div>
-    <div class="card-header">
-      <span class="rating">95</span>
-      <span class="position">ST</span>
-    </div>
-    <div class="player-image">
-      <img src="./src/assets/img/joueur/federico.png" alt="Player Image">
-    </div>
-    <div class="card-content">
-      <div class="player-name">Kane</div>
-      <div class="player-stats">
-        <div class="stat"><span class="value">90</span> PAC</div>
-        <div class="stat"><span class="value">95</span> SHO</div>
-        <div class="stat"><span class="value">90</span> PAS</div>
-        <div class="stat"><span class="value">92</span> DRI</div>
-        <div class="stat"><span class="value">53</span> DEF</div>
-        <div class="stat"><span class="value">92</span> PHY</div>
-      </div>
-      <div class="card-footer">
-          <img src="https://cdn3.futbin.com/content/fifa25/img/nation/14.png" alt="Nation" class="nation">
-          <img src="https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png" alt="League" class="league">
-          <img src="https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png" alt="Club" class="club">
-      </div>
-    </div>
-  </div> -->
-
+    
     <script src="./script/main.js"></script>
   </body>
 </html>

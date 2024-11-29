@@ -14,21 +14,26 @@ const footballClub = document.getElementById("football-club");
 const position = document.getElementById("position");
 const nationality = document.getElementById("nationality");
 const BackgroundImgInput = document.getElementById("");
+//les button des position de card
+const btnGoalkeeper=document.getElementById("btn-goalkeeper");
+const centerback1=document.getElementById("btn-goalkeeper");
+
+
 
 // array pourles players pour l'ajoute
 let players = [];
- function savePlayerslocalstorage() {
-    localStorage.setItem("players", JSON.stringify(players));
-  }
+function savePlayerslocalstorage() {
+  localStorage.setItem("players", JSON.stringify(players));
+}
 
 // fonction de Récupérer la liste des tâches de  LocalStorage -------------//
-  function LocalStorageplayerform() {
-    const saveplayer = localStorage.getItem("players");
-    if (saveplayer) {
-      players = JSON.parse(saveplayer);
-      players.forEach(affichiePlayers);
-    }
+function LocalStorageplayerform() {
+  const saveplayer = localStorage.getItem("players");
+  if (saveplayer) {
+    players = JSON.parse(saveplayer);
+    players.forEach(affichiePlayers);
   }
+}
 
 //fonction d'ajoute
 
@@ -64,10 +69,21 @@ function addPlayers() {
 
 function affichiePlayers(player) {
   const Changment = document.getElementById("content-chengment");
+  const CB1 = document.getElementById("center-back1");
+  const CB2 = document.getElementById("center-back2");
+  const CB3 = document.getElementById("center-back3");
+  const RM = document.getElementById("right-midfield");
+  const CM1 = document.getElementById("center-midfield1");
+  const CM2 = document.getElementById("center-midfield2");
+  const LM = document.getElementById("left-midfield");
+  const AT = document.getElementById("attacking-midfield");
+  const ST1 = document.getElementById("striker1");
+  const ST2 = document.getElementById("striker2");
+
   const playersCard = document.createElement("div");
   playersCard.classList.add("player-card");
   playersCard.innerHTML = `
-<div class="img-background">
+       <div class="img-background">
             <img src="${
               player.BackgroundImg || "./src/assets/img/template-3.png"
             }" alt="Background Image">
@@ -116,7 +132,58 @@ function affichiePlayers(player) {
             </div>
         </div>
     `;
-  Changment.appendChild(playersCard);
+
+  // switch pour chiosir la position
+  switch (player.Position) {
+    case "chang":
+      Changment.appendChild(playersCard);
+      centerback1.
+
+      break;
+
+    case "CB1":
+      CB1.appendChild(playersCard);
+      break;
+
+    case "CB2":
+      CB2.appendChild(playersCard);
+      break;
+
+    case "CB3":
+      CB3.appendChild(playersCard);
+      break;
+
+    case "RM":
+      RM.appendChild(playersCard);
+      break;
+
+    case "CM1":
+      CM1.appendChild(playersCard);
+      break;
+
+    case "CM2":
+      CM2.appendChild(playersCard);
+      break;
+
+    case "LM":
+      LM.appendChild(playersCard);
+      break;
+
+  //   case "attacking-midfield":
+  //     AT.appendChild(playersCard);
+  //     break;
+
+    case "ST1":
+      ST1.appendChild(playersCard);
+      break;
+
+    case "ST2":
+      ST2.appendChild(playersCard);
+      break;
+
+    default:
+      console.log("Position not found");
+  }
 }
 
 form.addEventListener("submit", function (e) {
