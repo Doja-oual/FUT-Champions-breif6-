@@ -80,63 +80,96 @@ body {
   height: auto;
   text-align: center;
   display: grid;
-  /* grid-template-columns: repeat(6,1fr);
-    grid-template-rows: repeat(5, 1fr);  */
+  grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(5, 1fr); 
 
   margin-left: 1rem;
   /* background: #EFD174; */
 
   grid-template-areas:
-    "ST1 ST1 ST1 ST2 ST2 ST2"
-    "CAM CAM CAM CAM CAM CAM  "
-    "LM . . . . RM"
-    "CM1 CM1 CM1 CM2 CM2 CM2"
+    ". ST1 ST1 ST2 ST2 ."
+    ". . CAM CAM  .  ."
+    "LM LM . . RM RM"
+    ". CM1 CM1 CM2 CM2 ."
     "CB1 CB1 CB2 CB2 CB3 CB3 "
-    "GK GK GK GK GK GK  ";
+    "GK GK GK GK GK GK";
   gap: 1rem;
 }
 
 .goalkeeper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: GK;
 }
 
 .center-back1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: CB1;
 }
 
 .center-back2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: CB2;
 }
 
 .center-back3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: CB3;
 }
 
 .right-midfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: RM;
 }
 
 .center-midfield1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: CM1;
 }
 
 .center-midfield2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: CM2;
 }
 
 .left-midfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: LM;
 }
 
 .attacking-midfield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: CAM;
 }
 
 .striker1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: ST1;
 }
 
 .striker2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: ST2;
 }
 /* Style de cards */
@@ -146,6 +179,8 @@ button {
   justify-content: center;
   align-items: center;
   position: relative;
+  /* top: 0;
+  left: 0; */
   width: 128px;
   height: 160px;
   border-radius: 12px;
@@ -365,4 +400,7 @@ transition: background 1s;
   background: #cbced1;
   color: #000000;
 
+}
+.position-card{
+  position: relative;
 }

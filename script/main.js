@@ -69,21 +69,23 @@ function addPlayers() {
 
 function affichiePlayers(player) {
   const Changment = document.getElementById("content-chengment");
-  const CB1 = document.getElementById("center-back1");
+  const CB1 = document.querySelector("center-back1");
   const CB2 = document.getElementById("center-back2");
   const CB3 = document.getElementById("center-back3");
   const RM = document.getElementById("right-midfield");
   const CM1 = document.getElementById("center-midfield1");
   const CM2 = document.getElementById("center-midfield2");
   const LM = document.getElementById("left-midfield");
-  const AT = document.getElementById("attacking-midfield");
+  const CAM = document.querySelector("attacking-midfield");
   const ST1 = document.getElementById("striker1");
   const ST2 = document.getElementById("striker2");
 
+
   const playersCard = document.createElement("div");
   playersCard.classList.add("player-card");
+  
   playersCard.innerHTML = `
-       <div class="img-background">
+       <div class="img-background" >
             <img src="${
               player.BackgroundImg || "./src/assets/img/template-3.png"
             }" alt="Background Image">
@@ -115,7 +117,7 @@ function affichiePlayers(player) {
                 <div class="stat"><span class="value">${
                   player.Defending
                 }</span> DEF</div>
-                <div class="stat"><span class="value">${
+                <div class="stat"><span class="value">${+
                   player.Physical
                 }</span> PHY</div>
             </div>
@@ -142,42 +144,57 @@ function affichiePlayers(player) {
       break;
 
     case "CB1":
+      CB1.innerHTML = ""
       CB1.appendChild(playersCard);
       break;
 
     case "CB2":
+      CB2.innerHTML = ""
       CB2.appendChild(playersCard);
       break;
 
     case "CB3":
+      CB3.innerHTML = ""
       CB3.appendChild(playersCard);
       break;
 
     case "RM":
+      RM.innerHTML = ""
       RM.appendChild(playersCard);
       break;
 
     case "CM1":
+      CM1.innerHTML = ""
       CM1.appendChild(playersCard);
       break;
 
     case "CM2":
+      CM2.innerHTML = ""
       CM2.appendChild(playersCard);
       break;
+    
+
 
     case "LM":
+      LM.innerHTML = ""
       LM.appendChild(playersCard);
       break;
+      case "CAM":
+      CAM.innerHTML = ""
+      CAM.appendChild(playersCard);
+        break;
 
   //   case "attacking-midfield":
   //     AT.appendChild(playersCard);
   //     break;
 
     case "ST1":
+      ST1.innerHTML = ""
       ST1.appendChild(playersCard);
       break;
 
     case "ST2":
+      ST2.innerHTML = ""
       ST2.appendChild(playersCard);
       break;
 
@@ -185,6 +202,24 @@ function affichiePlayers(player) {
       console.log("Position not found");
   }
 }
+// function PlayerRefrech(){
+//   const Changment = document.getElementById("content-chengment");
+//   const CB1 = document.getElementById("center-back1");
+//   const CB2 = document.getElementById("center-back2");
+//   const CB3 = document.getElementById("center-back3");
+//   const RM = document.getElementById("right-midfield");
+//   const CM1 = document.getElementById("center-midfield1");
+//   const CM2 = document.getElementById("center-midfield2");
+//   const LM = document.getElementById("left-midfield");
+//   const AT = document.getElementById("attacking-midfield");
+//   const ST1 = document.getElementById("striker1");
+//   const ST2 = document.getElementById("striker2");
+//   Changment.innerHTML="";
+//   CB1=innerHTML="";
+  
+//   players.forEach(affichiePlayers)
+
+// }
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
