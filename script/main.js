@@ -1,7 +1,19 @@
+
+
 let playerBtn = document.getElementById("btn-player");
 let gardienBtn = document.getElementById("btn-gardien");
+let playerInput=document.getElementById("player-input");
+let gardienInput=document.getElementById("goalkeeper-input");
+// varibla communs  
 const form = document.getElementById("form-content");
 const name = document.getElementById("name");
+const flag = document.getElementById("mySelect");
+const footballClub = document.getElementById("football-club");
+const position = document.getElementById("position");
+const nationality = document.getElementById("nationality");
+const BackgroundImgInput = document.getElementById("");
+// variable de joueure
+
 const rating = document.getElementById("rating");
 const pace = document.getElementById("pace");
 const shooting = document.getElementById("shooting");
@@ -9,15 +21,40 @@ const passing = document.getElementById("passing");
 const dribbling = document.getElementById("dribbling");
 const defending = document.getElementById("defending");
 const physical = document.getElementById("physical");
-const flag = document.getElementById("mySelect");
-const footballClub = document.getElementById("football-club");
-const position = document.getElementById("position");
-const nationality = document.getElementById("nationality");
-const BackgroundImgInput = document.getElementById("");
+//varible de gardian 
+const diving = document.getElementById("diving");
+const handling = document.getElementById("handling");
+const kicking = document.getElementById("kicking");
+const reflexes = document.getElementById("reflexes");
+const speed = document.getElementById("speed");
+const positioning = document.getElementById("positioning");
+//
+
 //les button des position de card
 const btnGoalkeeper=document.getElementById("btn-goalkeeper");
 const centerback1=document.getElementById("btn-goalkeeper");
+document.addEventListener("DOMContentLoaded", () => {
+//fonction pour affichie les inpute de gardian
+function affichieInputJoueure(){
+  playerInput.style.display="block";
+  gardienInput.style.display="none";
+  playerBtn.classList.add("active");
+  gardienBtn.classList.add("active");
+}
+//Fonction pour affichie les inpute de player
+function affichieInputGardian(){
+  playerInput.style.display="none";
+  gardienInput.style.display="block";
+  playerBtn.classList.add("active");
+  gardienBtn.classList.add("active");
+}
+//ajoute des evenment pour click btn 
+playerBtn.addEventListener("click",affichieInputJoueure);
+gardienBtn.addEventListener("click",affichieInputGardian);
 
+affichieInputJoueure();
+
+});
 
 
 // array pourles players pour l'ajoute
@@ -57,6 +94,15 @@ function addPlayers() {
     FootballClub: footballClub.value,
     Position: position.value,
     Nationality: nationality.value,
+    //pour valeur des gardian
+    Diving: diving.value,
+    Handling: handling.value,
+    Kicking: kicking.value,
+    Reflexes: reflexes.value,
+    Speed: speed.value,
+    Positioning: positioning.value,
+
+
   };
   players.push(playerInfo);
   affichiePlayers(playerInfo);
@@ -136,12 +182,12 @@ function affichiePlayers(player) {
     `;
 
   // switch pour chiosir la position
+
   switch (player.Position) {
     case "chang":
       Changment.appendChild(playersCard);
-      centerback1.
-
       break;
+      
 
     case "CB1":
       CB1.innerHTML = ""
@@ -201,7 +247,11 @@ function affichiePlayers(player) {
     default:
       console.log("Position not found");
   }
+  LocalStorageplayerform()
 }
+
+
+
 // function PlayerRefrech(){
 //   const Changment = document.getElementById("content-chengment");
 //   const CB1 = document.getElementById("center-back1");
@@ -358,3 +408,9 @@ form.addEventListener("submit", function (e) {
 //     const errorElement = document.createElement("div");
 //     errorElement.classList.add("error-message");
 //     errorElement.innerText = message;}
+
+
+// //pour localestorige des joueur
+// document.addEventListener('DOMContentLoaded', function() {
+//   LocalStorageplayerform();  
+// });
