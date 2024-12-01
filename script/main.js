@@ -1,7 +1,5 @@
 
 
-let playerBtn = document.getElementById("btn-player");
-let gardienBtn = document.getElementById("btn-gardien");
 let playerInput=document.getElementById("player-input");
 let gardienInput=document.getElementById("goalkeeper-input");
 // varibla communs  
@@ -11,7 +9,6 @@ const flag = document.getElementById("mySelect");
 const footballClub = document.getElementById("football-club");
 const position = document.getElementById("position");
 const nationality = document.getElementById("nationality");
-const BackgroundImgInput = document.getElementById("");
 // variable de joueure
 
 const rating = document.getElementById("rating");
@@ -31,30 +28,34 @@ const positioning = document.getElementById("positioning");
 //
 
 //les button des position de card
-const btnGoalkeeper=document.getElementById("btn-goalkeeper");
-const centerback1=document.getElementById("btn-goalkeeper");
-document.addEventListener("DOMContentLoaded", () => {
+let playerBtn = document.getElementById("btn-player");
+let gardienBtn = document.getElementById("btn-gardien");
+
+
+
+  
 //fonction pour affichie les inpute de gardian
 function affichieInputJoueure(){
   playerInput.style.display="block";
   gardienInput.style.display="none";
-  playerBtn.classList.add("active");
-  gardienBtn.classList.add("active");
+  playerBtn.classList.add("disabled");
+  gardienBtn.classList.remove("disabled");
 }
 //Fonction pour affichie les inpute de player
 function affichieInputGardian(){
   playerInput.style.display="none";
   gardienInput.style.display="block";
-  playerBtn.classList.add("active");
-  gardienBtn.classList.add("active");
+  playerBtn.classList.remove("disabled");
+  gardienBtn.classList.add("disabled");
 }
+
 //ajoute des evenment pour click btn 
-playerBtn.addEventListener("click",affichieInputJoueure);
-gardienBtn.addEventListener("click",affichieInputGardian);
 
-affichieInputJoueure();
 
-});
+
+
+
+
 
 
 // array pourles players pour l'ajoute
@@ -95,12 +96,12 @@ function addPlayers() {
     Position: position.value,
     Nationality: nationality.value,
     //pour valeur des gardian
-    Diving: diving.value,
-    Handling: handling.value,
-    Kicking: kicking.value,
-    Reflexes: reflexes.value,
-    Speed: speed.value,
-    Positioning: positioning.value,
+    // Diving: diving.value,
+    // Handling: handling.value,
+    // Kicking: kicking.value,
+    // Reflexes: reflexes.value,
+    // Speed: speed.value,
+    // Positioning: positioning.value,
 
 
   };
@@ -115,7 +116,7 @@ function addPlayers() {
 
 function affichiePlayers(player) {
   const Changment = document.getElementById("content-chengment");
-  const CB1 = document.querySelector("center-back1");
+  const CB1 = document.getElementById("center-back1");
   const CB2 = document.getElementById("center-back2");
   const CB3 = document.getElementById("center-back3");
   const RM = document.getElementById("right-midfield");
@@ -247,7 +248,6 @@ function affichiePlayers(player) {
     default:
       console.log("Position not found");
   }
-  LocalStorageplayerform()
 }
 
 
@@ -271,10 +271,7 @@ function affichiePlayers(player) {
 
 // }
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  addPlayers();
-});
+
 
 // fonction de validation la formulaire
 // function validation() {
@@ -414,3 +411,17 @@ form.addEventListener("submit", function (e) {
 // document.addEventListener('DOMContentLoaded', function() {
 //   LocalStorageplayerform();  
 // });
+
+document.addEventListener("DOMContentLoaded",function(){
+  affichieInputJoueure();
+  LocalStorageplayerform();
+
+  playerBtn.addEventListener("click",affichieInputJoueure);
+  gardienBtn.addEventListener("click",affichieInputGardian);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    addPlayers();
+  });
+
+});

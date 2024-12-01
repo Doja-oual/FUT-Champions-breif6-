@@ -386,7 +386,8 @@ button:hover .placeholder-img {
 }
 .btn-switche button{
 flex-basis: 48%;
-background: #efd174;
+background: #cbced1;
+
 height: 40px;
 color: #000000;
 border: 0;
@@ -397,10 +398,16 @@ transition: background 1s;
 
 }
 .btn-switche button.disabled{
-  background: #cbced1;
-  color: #000000;
+  background: #efd174;
+  color: #6b6b6b;
+  cursor: not-allowed;
 
 }
+.btn-switche button:not(.disabled):hover {
+  background: #d4b45f; 
+  transform: scale(1.05); 
+}
+
 .position-card{
   position: relative;
 }
