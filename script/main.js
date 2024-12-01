@@ -1,5 +1,4 @@
 
-
 let playerInput=document.getElementById("player-input");
 let gardienInput=document.getElementById("goalkeeper-input");
 // varibla communs  
@@ -40,6 +39,7 @@ function affichieInputJoueure(){
   gardienInput.style.display="none";
   playerBtn.classList.add("disabled");
   gardienBtn.classList.remove("disabled");
+  
 }
 //Fonction pour affichie les inpute de player
 function affichieInputGardian(){
@@ -47,6 +47,7 @@ function affichieInputGardian(){
   gardienInput.style.display="block";
   playerBtn.classList.remove("disabled");
   gardienBtn.classList.add("disabled");
+  
 }
 
 //ajoute des evenment pour click btn 
@@ -76,6 +77,8 @@ function LocalStorageplayerform() {
 //fonction d'ajoute
 
 function addPlayers() {
+  const positionValue = position.value.trim();
+
   // const backgroundImg = backgroundImgInput.value.trim() || './src/assets/img/template-3.png'; // Default if empty
   // if(!Validation()){
   // return;
@@ -84,8 +87,8 @@ function addPlayers() {
   const playerInfo = {
     id: Date.now(),
     Name: name.value.trim(),
-    Rating: rating.value,
-    Pace: pace.value,
+    Rating: rating.value.trim(),
+    Pace: pace.value.trim(),
     Shooting: shooting.value,
     Passing: passing.value,
     Dribbling: dribbling.value,
@@ -95,16 +98,21 @@ function addPlayers() {
     FootballClub: footballClub.value,
     Position: position.value,
     Nationality: nationality.value,
-    //pour valeur des gardian
-    // Diving: diving.value,
+    // pour valeur des gardian,
     // Handling: handling.value,
     // Kicking: kicking.value,
     // Reflexes: reflexes.value,
     // Speed: speed.value,
     // Positioning: positioning.value,
 
-
   };
+
+
+ 
+
+
+ 
+  
   players.push(playerInfo);
   affichiePlayers(playerInfo);
   savePlayerslocalstorage();
@@ -116,6 +124,7 @@ function addPlayers() {
 
 function affichiePlayers(player) {
   const Changment = document.getElementById("content-chengment");
+  const GK=document.getElementById("goalkeeper");
   const CB1 = document.getElementById("center-back1");
   const CB2 = document.getElementById("center-back2");
   const CB3 = document.getElementById("center-back3");
@@ -127,7 +136,7 @@ function affichiePlayers(player) {
   const ST1 = document.getElementById("striker1");
   const ST2 = document.getElementById("striker2");
 
-
+//card pour players
   const playersCard = document.createElement("div");
   playersCard.classList.add("player-card");
   
@@ -180,42 +189,125 @@ function affichiePlayers(player) {
                 }" alt="Club" class="club">
             </div>
         </div>
+     <div class="card-action">
+        <button class="btnModifie">
+            <i class="fas fa-edit"></i>
+        </button>
+        <button class="btnSupprime">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+        </div>
+
     `;
+    const GardianCard = document.createElement("div");
+    GardianCard.classList.add("player-card");
+    GardianCard.innerHTML = `
+      <div class="img-background">
+                <img src="${player.BackgroundImg || "./src/assets/img/background-card-gardian.webp"}" alt="Background Image">
+
+      </div>
+      <div class="card-header">
+        <span class="rating">${player.Rating}</span>
+        <span class="position">${player.Position}</span>
+      </div>
+      <div class="player-image">
+        <img src="${player.PlayerImg || './src/assets/img/joueur/federico.png'}" alt="Player Image">
+      </div>
+      <div class="card-content">
+        <div class="player-name">${player.Name}</div>
+        <div class="player-stats">
+          <div class="stat"><span class="value">${player.Diving}</span> DIV</div>
+          <div class="stat"><span class="value">${player.Handling}</span> HAN</div>
+          <div class="stat"><span class="value">${player.Kicking}</span> KIC</div>
+          <div class="stat"><span class="value">${player.Reflexes}</span> REF</div>
+          <div class="stat"><span class="value">${player.Speed}</span> SPD</div>
+          <div class="stat"><span class="value">${player.Positioning}</span> POS</div>
+        </div>
+        <div class="card-footer">
+          <img src="${player.Flag}" alt="Nation" class="nation">
+          <img src="${player.LeagueImg || 'https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png'}" alt="League" class="league">
+          <img src="${player.ClubImg || 'https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png'}" alt="Club" class="club">
+        </div>
+      </div>
+        <div class="card-action">
+        <button class="btnModifie">
+            <i class="fas fa-edit"></i>
+        </button>
+        <button class="btnSupprime">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+        </div>
+    `;
+           // position card pour gardian
 
   // switch pour chiosir la position
 
   switch (player.Position) {
+
+    case "GK":
+      if(GK.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
+      GK.innerHTML="";
+      GK.appendChild(GardianCard);
+      break;
+
     case "chang":
       Changment.appendChild(playersCard);
       break;
       
 
     case "CB1":
+      if(CB1.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       CB1.innerHTML = ""
       CB1.appendChild(playersCard);
       break;
 
     case "CB2":
+      if(CB2.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       CB2.innerHTML = ""
       CB2.appendChild(playersCard);
       break;
 
     case "CB3":
+      if(CB3.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       CB3.innerHTML = ""
       CB3.appendChild(playersCard);
       break;
 
     case "RM":
+      if(RM.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       RM.innerHTML = ""
       RM.appendChild(playersCard);
       break;
 
     case "CM1":
+      if(CM1.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       CM1.innerHTML = ""
       CM1.appendChild(playersCard);
       break;
 
     case "CM2":
+      if(CM2.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       CM2.innerHTML = ""
       CM2.appendChild(playersCard);
       break;
@@ -223,24 +315,38 @@ function affichiePlayers(player) {
 
 
     case "LM":
+      if(LM.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       LM.innerHTML = ""
       LM.appendChild(playersCard);
       break;
       case "CAM":
+        if(CAM.querySelector(".player-card")){
+          Changment.appendChild(playersCard);
+          return;
+        }
       CAM.innerHTML = ""
       CAM.appendChild(playersCard);
         break;
 
-  //   case "attacking-midfield":
-  //     AT.appendChild(playersCard);
-  //     break;
+ 
 
     case "ST1":
+      if(ST1.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       ST1.innerHTML = ""
       ST1.appendChild(playersCard);
       break;
 
     case "ST2":
+      if(ST2.querySelector(".player-card")){
+        Changment.appendChild(playersCard);
+        return;
+      }
       ST2.innerHTML = ""
       ST2.appendChild(playersCard);
       break;
@@ -252,176 +358,21 @@ function affichiePlayers(player) {
 
 
 
-// function PlayerRefrech(){
-//   const Changment = document.getElementById("content-chengment");
-//   const CB1 = document.getElementById("center-back1");
-//   const CB2 = document.getElementById("center-back2");
-//   const CB3 = document.getElementById("center-back3");
-//   const RM = document.getElementById("right-midfield");
-//   const CM1 = document.getElementById("center-midfield1");
-//   const CM2 = document.getElementById("center-midfield2");
-//   const LM = document.getElementById("left-midfield");
-//   const AT = document.getElementById("attacking-midfield");
-//   const ST1 = document.getElementById("striker1");
-//   const ST2 = document.getElementById("striker2");
-//   Changment.innerHTML="";
-//   CB1=innerHTML="";
-  
-//   players.forEach(affichiePlayers)
 
-// }
-
-
-
-// fonction de validation la formulaire
-// function validation() {
-//     let isValide = true;
-//     resetErrors(); // Fonction pour réinitialiser les erreurs (si elle existe)
-
-//     // Validation du nom
-//     if (name.value.trim() === "") {
-//         showError(name, "Le nom est requis.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,30}$/;
-//         if (!regex.test(name.value.trim())) {
-//             showError(name, "Le nom doit contenir uniquement des lettres et des espaces.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation du rating
-//     if (rating.value.trim() === "") {
-//         showError(rating, "La note est requise.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[0-9]{1,2}(\.[0-9]{1,2})?$/; // Accepte les nombres avec décimales
-//         if (!regex.test(rating.value.trim())) {
-//             showError(rating, "La note doit être un nombre valide.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation de la vitesse
-//     if (pace.value.trim() === "") {
-//         showError(pace, "La vitesse est requise.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[0-9]{1,2}$/; // Vitesse doit être un nombre
-//         if (!regex.test(pace.value.trim())) {
-//             showError(pace, "La vitesse doit être un nombre valide.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation du tir
-//     if (shooting.value.trim() === "") {
-//         showError(shooting, "Le tir est requis.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[0-9]{1,2}$/; // Tir doit être un nombre
-//         if (!regex.test(shooting.value.trim())) {
-//             showError(shooting, "Le tir doit être un nombre valide.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation des passes
-//     if (passing.value.trim() === "") {
-//         showError(passing, "Les passes sont requises.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[0-9]{1,2}$/;
-//         if (!regex.test(passing.value.trim())) {
-//             showError(passing, "Les passes doivent être un nombre valide.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation du dribble
-//     if (dribbling.value.trim() === "") {
-//         showError(dribbling, "Le dribble est requis.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[0-9]{1,2}$/;
-//         if (!regex.test(dribbling.value.trim())) {
-//             showError(dribbling, "Le dribble doit être un nombre valide.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation de la défense
-//     if (defending.value.trim() === "") {
-//         showError(defending, "La défense est requise.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[0-9]{1,2}$/;
-//         if (!regex.test(defending.value.trim())) {
-//             showError(defending, "La défense doit être un nombre valide.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation du physique
-//     if (physical.value.trim() === "") {
-//         showError(physical, "Le physique est requis.");
-//         isValide = false;
-//     } else {
-//         const regex = /^[0-9]{1,2}$/;
-//         if (!regex.test(physical.value.trim())) {
-//             showError(physical, "Le physique doit être un nombre valide.");
-//             isValide = false;
-//         }
-//     }
-
-//     // Validation du club de football
-//     if (footballClub.value.trim() === "") {
-//         showError(footballClub, "Le club de football est requis.");
-//         isValide = false;
-//     }
-
-//     // Validation de la position
-//     if (position.value.trim() === "") {
-//         showError(position, "La position est requise.");
-//         isValide = false;
-//     }
-
-//     // Validation de la nationalité
-//     if (nationality.value.trim() === "") {
-//         showError(nationality, "La nationalité est requise.");
-//         isValide = false;
-//     }
-
-//     // Validation du drapeau (peut être une image ou une URL)
-//     if (flag.value.trim() === "") {
-//         showError(flag, "Le drapeau est requis.");
-//         isValide = false;
-//     }
-
-//     return isValide;
-// }
-// function showError(inputElement, message) {
-//     // Créer un élément pour message d'erreur
-//     const errorElement = document.createElement("div");
-//     errorElement.classList.add("error-message");
-//     errorElement.innerText = message;}
-
-
-// //pour localestorige des joueur
-// document.addEventListener('DOMContentLoaded', function() {
-//   LocalStorageplayerform();  
-// });
 
 document.addEventListener("DOMContentLoaded",function(){
   affichieInputJoueure();
   LocalStorageplayerform();
 
   playerBtn.addEventListener("click",affichieInputJoueure);
+  
   gardienBtn.addEventListener("click",affichieInputGardian);
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     addPlayers();
+    
   });
 
 });
+

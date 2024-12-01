@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   </head>
   <body>
     <style>
@@ -403,11 +405,16 @@
               </div>
             </div>
               <!--les inpute de gardiens  -->
+
               <div id="goalkeeper-input" style="display: none;">
                 <div class="input-groub-box">
                 <div class="input-box">
                   <label for="handling">Handling</label>
                   <input type="number" name="handling" id="handling" />
+                </div>
+                <div class="input-box">
+                  <label for="speed">speed</label>
+                  <input type="number" name="speed" id="speed" />
                 </div>
                 <div class="input-box">
                   <label for="reflexes">Reflexes</label>
@@ -432,6 +439,7 @@
                 <div class="input-box">
                   <label for="position">position</label>
                   <select name="position" id="position">
+                    <option value="GK">GK</option>
                     <option value="chang">chang</option>
                     <option value="CB1">CB1</option>
                     <option value="CB2">CB2</option>
@@ -557,6 +565,7 @@
 
           
     </div>
+   
     
     <script src="./script/main.js"></script>
   </body>
