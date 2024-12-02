@@ -184,3 +184,11 @@
     //     document.querySelector(".form-content").classList.add("active");
       
     //   }
+    // if(playerInfo.Position==="KG"){
+    //   playerInfo.Pace=diving.value,
+    //   playerInfo.Shooting=handling.value
+    //   playerInfo.Passing=kicking.value
+    //   playerInfo.Dribbling=reflexes.value
+    //   playerInfo.Defending=speed.value
+    //   playerInfo.Physical=positioning.value
+    // }

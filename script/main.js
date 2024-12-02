@@ -1,3 +1,4 @@
+// localStorage.clear();
 
 let playerInput=document.getElementById("player-input");
 let gardienInput=document.getElementById("goalkeeper-input");
@@ -22,6 +23,9 @@ const diving = document.getElementById("diving");
 const handling = document.getElementById("handling");
 const kicking = document.getElementById("kicking");
 const reflexes = document.getElementById("reflexes");
+const hg = document.querySelector(".hg");
+
+
 const speed = document.getElementById("speed");
 const positioning = document.getElementById("positioning");
 //
@@ -77,34 +81,63 @@ function LocalStorageplayerform() {
 //fonction d'ajoute
 
 function addPlayers() {
+  
   const playerId = form.dataset.editing;
   // const backgroundImg = backgroundImgInput.value.trim() || './src/assets/img/template-3.png'; // Default if empty
   // if(!Validation()){
   // return;
   // }
   //    else{
-  const playerInfo = {
-    id: playerId ? parseInt(playerId) : Date.now(),
-    Name: name.value.trim(),
-    Rating: rating.value.trim(),
-    Pace: pace.value.trim(),
-    Shooting: shooting.value,
-    Passing: passing.value,
-    Dribbling: dribbling.value,
-    Defending: defending.value,
-    Physical: physical.value,
-    Flag: flag.value,
-    FootballClub: footballClub.value,
-    Position: position.value,
-    Nationality: nationality.value,
-    // pour valeur des gardian,
-    // Handling: handling.value,
-    // Kicking: kicking.value,
-    // Reflexes: reflexes.value,
-    // Speed: speed.value,
-    // Positioning: positioning.value,
-
-  };
+  
+  
+  if(position.value === "GK"){
+    const gkplayerInfo = {
+      id: playerId ? parseInt(playerId) : Date.now(),
+      Name: name.value.trim(),
+      Rating: rating.value.trim(),
+      diving: diving.value.trim(),
+      handling: handling.value,
+      
+      reflexes: reflexes.value,
+      speed: speed.value,
+      Flag: flag.value,
+      FootballClub: footballClub.value,
+      Position: position.value,
+      positioning: positioning.value,
+      Nationality: nationality.value,
+    };
+    console.log(gkplayerInfo);
+    
+    players = [];
+    players.push(gkplayerInfo);
+    savePlayerslocalstorage();
+    form.reset();
+    affichieInputGardian(); 
+    document.getElementById("content-chengment").innerHTML = "";
+    players.forEach(affichiePlayers);
+  }
+  else{
+    
+    
+    const playerInfo = {
+      id: playerId ? parseInt(playerId) : Date.now(),
+      Name: name.value.trim(),
+      Rating: rating.value.trim(),
+      Pace: pace.value.trim(),
+      Shooting: shooting.value,
+      Passing: passing.value,
+      Dribbling: dribbling.value,
+      Defending: defending.value,
+      Physical: physical.value,
+      Flag: flag.value,
+      FootballClub: footballClub.value,
+      Position: position.value,
+      Nationality: nationality.value,
+    };
+    
+    console.log(playerInfo);
+ 
+  
 
 
   if (playerId) {
@@ -117,6 +150,7 @@ function addPlayers() {
   } else {
     // Ajouter un nouveau joueur
     players.push(playerInfo);
+   
   }
 
   savePlayerslocalstorage();
@@ -124,6 +158,7 @@ function addPlayers() {
   affichieInputJoueure(); 
   document.getElementById("content-chengment").innerHTML = "";
   players.forEach(affichiePlayers);
+}
 }
 
 
@@ -174,7 +209,7 @@ function affichiePlayers(player) {
             <div class="player-name">${player.Name}</div>
             <div class="player-stats">
                 <div class="stat"><span class="value">${
-                  player.Pace
+                  player.Pace 
                 }</span> PAC</div>
                 <div class="stat"><span class="value">${
                   player.Shooting
@@ -204,11 +239,11 @@ function affichiePlayers(player) {
                 }" alt="Club" class="club">
             </div>
         </div>
-     <div class="card-action">
-        <button class="btnModifie">
+    <div class="card-action">
+        <button class="btnModifie"  onclick="openplayerModifier(${player.id})">
             <i class="fas fa-edit"></i>
         </button>
-        <button class="btnSupprime">
+        <button class="btnSupprime" onclick="supprimerPlayer(${player.id})">
             <i class="fas fa-trash-alt"></i>
         </button>
         </div>
@@ -231,12 +266,12 @@ function affichiePlayers(player) {
       <div class="card-content">
         <div class="player-name">${player.Name}</div>
         <div class="player-stats">
-          <div class="stat"><span class="value">${player.Diving}</span> DIV</div>
-          <div class="stat"><span class="value">${player.Handling}</span> HAN</div>
-          <div class="stat"><span class="value">${player.Kicking}</span> KIC</div>
-          <div class="stat"><span class="value">${player.Reflexes}</span> REF</div>
-          <div class="stat"><span class="value">${player.Speed}</span> SPD</div>
-          <div class="stat"><span class="value">${player.Positioning}</span> POS</div>
+          <div class="stat"><span class="value">${player.diving}</span> DIV</div>
+          <div class="stat"><span class="value">${player.handling}</span> HAN</div>
+          <div class="stat"><span class="value">${player.kicking}</span> KIC</div>
+          <div class="stat"><span class="value">${player.reflexes}</span> REF</div>
+          <div class="stat"><span class="value">${player.speed}</span> SPD</div>
+          <div class="stat"><span class="value">${player.positioning}</span> POS</div>
         </div>
         <div class="card-footer">
           <img src="${player.Flag}" alt="Nation" class="nation">
@@ -274,7 +309,7 @@ function affichiePlayers(player) {
 
     case "GK":
       if(GK.querySelector(".player-card")){
-        Changment.appendChild(playersCard);
+        Changment.appendChild(GardianCard);
         return;
       }
       GK.innerHTML="";
@@ -380,7 +415,7 @@ function affichiePlayers(player) {
       break;
 
     default:
-      console.log("Position not found");
+      console.log("Position not found");b
 
   }
  
