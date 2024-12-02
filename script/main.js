@@ -77,15 +77,14 @@ function LocalStorageplayerform() {
 //fonction d'ajoute
 
 function addPlayers() {
-  const positionValue = position.value.trim();
-
+  const playerId = form.dataset.editing;
   // const backgroundImg = backgroundImgInput.value.trim() || './src/assets/img/template-3.png'; // Default if empty
   // if(!Validation()){
   // return;
   // }
   //    else{
   const playerInfo = {
-    id: Date.now(),
+    id: playerId ? parseInt(playerId) : Date.now(),
     Name: name.value.trim(),
     Rating: rating.value.trim(),
     Pace: pace.value.trim(),
@@ -108,16 +107,32 @@ function addPlayers() {
   };
 
 
- 
+  if (playerId) {
+    // Mise à jour d'un joueur existant
+    const index = players.findIndex(p => p.id === parseInt(playerId));
+    if (index !== -1) {
+      players[index] = playerInfo;
+    }
+    form.dataset.editing = ""; 
+  } else {
+    // Ajouter un nouveau joueur
+    players.push(playerInfo);
+  }
 
-
- 
-  
-  players.push(playerInfo);
-  affichiePlayers(playerInfo);
   savePlayerslocalstorage();
-  // }
   form.reset();
+  affichieInputJoueure(); 
+  document.getElementById("content-chengment").innerHTML = "";
+  players.forEach(affichiePlayers);
+}
+
+
+///
+function supprimerPlayer(playerId) {
+  players = players.filter(p => p.id !== playerId);
+  savePlayerslocalstorage();
+  document.getElementById("content-chengment").innerHTML = "";
+  players.forEach(affichiePlayers);
 }
 
 //fonction affichie players
@@ -230,14 +245,27 @@ function affichiePlayers(player) {
         </div>
       </div>
         <div class="card-action">
-        <button class="btnModifie">
+        <button class="btnModifie"  onclick="openplayerModifier(${player.id})">
             <i class="fas fa-edit"></i>
         </button>
-        <button class="btnSupprime">
+        <button class="btnSupprime" onclick="supprimerPlayer(${player.id})">
             <i class="fas fa-trash-alt"></i>
         </button>
         </div>
     `;
+    const modifyButton = playersCard.querySelector('.btnModifie');
+    const deleteButton = playersCard.querySelector('.btnSupprime');
+  
+    // Ajouter les événements pour modifier et supprimer un joueur
+    modifyButton.addEventListener('click', function() {
+      openplayerModifier(player.id);
+    });
+  
+    deleteButton.addEventListener('click', function() {
+      supprimerPlayer(player.id);
+    });
+   
+    
            // position card pour gardian
 
   // switch pour chiosir la position
@@ -353,8 +381,47 @@ function affichiePlayers(player) {
 
     default:
       console.log("Position not found");
+
   }
+ 
+
+};
+function openplayerModifier(playerId) {
+  const player = players.find(p => p.id === playerId);
+  if (!player) return;
+
+  // Préremplir le formulaire avec les données du joueur
+  name.value = player.Name;
+  flag.value = player.Flag;
+  footballClub.value = player.FootballClub;
+  position.value = player.Position;
+  nationality.value = player.Nationality;
+
+  // Remplir les stats de joueur ou de gardien
+  if (player.Position === "GK") {
+    diving.value = player.Diving;
+    handling.value = player.Handling;
+    kicking.value = player.Kicking;
+    reflexes.value = player.Reflexes;
+    speed.value = player.Speed;
+    positioning.value = player.Positioning;
+    affichieInputGardian();
+  } else {
+    pace.value = player.Pace;
+    shooting.value = player.Shooting;
+    passing.value = player.Passing;
+    dribbling.value = player.Dribbling;
+    defending.value = player.Defending;
+    physical.value = player.Physical;
+    affichieInputJoueure();
+  }
+
+  form.dataset.editing = playerId; // Marquer comme étant en mode édition
 }
+
+
+
+//add player 
 
 
 

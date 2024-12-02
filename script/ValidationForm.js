@@ -1,4 +1,4 @@
-/ function PlayerRefrech(){
+// / function PlayerRefrech(){
     //   const Changment = document.getElementById("content-chengment");
     //   const CB1 = document.getElementById("center-back1");
     //   const CB2 = document.getElementById("center-back2");
@@ -157,3 +157,30 @@
     // document.addEventListener('DOMContentLoaded', function() {
     //   LocalStorageplayerform();  
     // });
+    // function openplayerModifier(id) {
+    //     const player = players.find((t) => t.id === id);
+    //     if (!player) return;
+      
+      
+    //     name.value = player.Name || ""; 
+    //     pace.value = player.Pace || "";
+    //     shooting.value = player.Shooting || "";
+    //     passing.value = player.Passing || "";
+    //     dribbling.value = player.Dribbling || "";
+    //     defending.value = player.Defending || "";
+    //     physical.value = player.Physical || "";
+    //     flag.value = player.Flag || "";
+    //     footballClub.value = player.FootballClub || "";
+    //     position.value = player.Position || "";
+    //     nationality.value = player.Nationality || "";
+    //     //for gardian
+    //     // if (player.Handling) handling.value = player.Handling || "";
+    //     // if (player.Kicking) kicking.value = player.Kicking || "";
+    //     // if (player.Reflexes) reflexes.value = player.Reflexes || "";
+    //     // if (player.Speed) speed.value = player.Speed || "";
+    //     // if (player.Positioning) positioning.value = player.Positioning || "";
+        
+    //     form.setAttribute("data-edit-id", id);
+    //     document.querySelector(".form-content").classList.add("active");
+      
+    //   }
