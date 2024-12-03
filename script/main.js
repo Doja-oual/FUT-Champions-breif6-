@@ -96,6 +96,8 @@ function affichieInputJoueure() {
   gardienInput.style.display = "none";
   playerBtn.classList.add("disabled");
   gardienBtn.classList.remove("disabled");
+  position_choice("player");
+
 }
 //Fonction pour affichie les inpute de player
 function affichieInputGardian() {
@@ -103,6 +105,23 @@ function affichieInputGardian() {
   gardienInput.style.display = "block";
   playerBtn.classList.remove("disabled");
   gardienBtn.classList.add("disabled");
+  position_choice("GK");
+  
+}
+
+function position_choice(pos){
+  if(pos=="GK") position.innerHTML='<option value="GK">GK</option>';
+  else position.innerHTML=`<option value="chang">chang</option>
+                    <option value="CB1">CB1</option>
+                    <option value="CB2">CB2</option>
+                    <option value="CB3">CB3</option>
+                    <option value="CM1">CM1</option>
+                    <option value="CM2">CM2</option>
+                    <option value="LM">LM</option>
+                    <option value="AT">CAM</option>
+                    <option value="RM">RM</option>
+                    <option value="ST1">ST1</option>
+                    <option value="ST2">ST2</option>`
 }
 
 //ajoute des evenment pour click btn
@@ -600,13 +619,36 @@ function validateForm() {
     dribbling,
     defending,
     physical,
+   
+  ];
+  const field_gk=[
+    name,
+    flag,
+    footballClub,
+    position,
+    nationality,
     diving,
     handling,
     kicking,
     reflexes,
     speed,
     positioning,
-  ];
+  ]
+  if(position.value=="GK"){
+    field_gk.forEach(( field_gk) => {
+      const pattern = patterns[ field_gk.id]; 
+      if (pattern) {
+        if (pattern.test( field_gk.value.trim())) {
+          field_gk.style.border = "1px solid green"; 
+        } else {
+          field_gk.style.border = "2px solid red"; 
+          createErrorMessage( field_gk, `Invalid ${ field_gk.id}`); 
+          isValid = false;
+        }
+      }
+    });
+  }
+  else{
   fields.forEach((field) => {
     const pattern = patterns[field.id]; 
     if (pattern) {
@@ -619,8 +661,10 @@ function validateForm() {
       }
     }
   });
+}
   return isValid;
 }
+//fonction de remove et create msg de invalid player
 function removeErrorMessage(field) {
   const error = field.nextElementSibling;
   if (error && error.classList.contains("error-message")) {
@@ -636,7 +680,23 @@ function createErrorMessage(field, message) {
   error.innerText = message;
   field.insertAdjacentElement("afterend", error);
 }
+//fonction de remove et create msg de invalid gardian
 
+function removeErrorMessage( field_gk) {
+  const error =  field_gk.nextElementSibling;
+  if (error && error.classList.contains("error-message")) {
+    error.remove();
+  }
+}
+// fonction pour  un message d'erreur
+function createErrorMessage( field_gk, message) {
+  removeErrorMessage( field_gk); 
+  const error = document.createElement("div");
+  error.className = "error-message";
+  error.style.color = "red";
+  error.innerText = message;
+  field_gk.insertAdjacentElement("afterend", error);
+}
 
 
 
