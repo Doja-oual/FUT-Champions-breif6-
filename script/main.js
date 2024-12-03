@@ -72,14 +72,18 @@ formation.addEventListener("change",function(){
     break;
    
   
-  case "342":
+  case "3421":
       contentFooot.style.gridTemplateColumns = "repeat(8, 1fr)";
       contentFooot.style.gridTemplateRows = "repeat(5, 1fr)";
       contentFooot.style.gridTemplateAreas = `
-      ". . ST1 ST1 ST2 ST2 . ."
-      "LM LM CM1 CM1 CM2 CM2 RM RM"
-      ". CB1 CB1 CB2 CB2 CB3 CB3 ."
-      ". . GK GK GK GK . ."
+              ". . CAM CAM  .  ."
+
+      ". ST1 ST1 ST2 ST2 ."
+    "LM LM . . RM RM"
+
+    ". CM1 CM1 CM2 CM2 ."
+    "CB1 CB1 CB2 CB2 CB3 CB3 "
+    "GK GK GK GK GK GK"
       `;
       break;
 
