@@ -1,5 +1,5 @@
 // localStorage.clear();
-
+//le id de parent  inpute de players   et gardian spicifique
 let playerInput = document.getElementById("player-input");
 let gardienInput = document.getElementById("goalkeeper-input");
 // varibla communs
@@ -30,10 +30,11 @@ const positioning = document.getElementById("positioning");
 //les button des position de card
 let playerBtn = document.getElementById("btn-player");
 let gardienBtn = document.getElementById("btn-gardien");
-
+// id de formation des player (bonus)
 const formation = document.getElementById("SquadInfo");
+// id de section de tiran
 const contentFooot =document.querySelector(".content-fooot");
-
+// fonction bonus de formation des players 
 formation.addEventListener("change",function(){
   switch(formation.value){
     case"3412":
@@ -83,7 +84,7 @@ formation.addEventListener("change",function(){
 
     ". CM1 CM1 CM2 CM2 ."
     "CB1 CB1 CB2 CB2 CB3 CB3 "
-    "GK GK GK GK GK GK"
+    " . GK GK GK GK GK GK ."
       `;
       break;
 
@@ -136,7 +137,7 @@ function savePlayerslocalstorage() {
   localStorage.setItem("players", JSON.stringify(players));
 }
 
-// fonction de Récupérer la liste des tâches de  LocalStorage -------------//
+// fonction de Récupérer la liste des players de  LocalStorage -------------//
 function LocalStorageplayerform() {
   const saveplayer = localStorage.getItem("players");
   if (saveplayer) {
@@ -148,16 +149,11 @@ function LocalStorageplayerform() {
 //fonction d'ajoute
 
 function addPlayers() {
-  const playerId = form.dataset.editing;
-  // const backgroundImg = backgroundImgInput.value.trim() || './src/assets/img/template-3.png'; // Default if empty
-  // if(!Validation()){
-  // return;
-  // }
-  //    else{
+  const playerId = form.dataset.editing; //?
 
   if (position.value === "GK") {
     const gkplayerInfo = {
-      id: playerId ? parseInt(playerId) : Date.now(),
+      id: playerId ? parseInt(playerId) : Date.now(),//? OPIRATEUR TIRNIRE
       Name: name.value.trim(),
       Rating: rating.value.trim(),
       diving: diving.value.trim(),
@@ -202,7 +198,7 @@ function addPlayers() {
     savePlayerslocalstorage();
     form.reset();
     affichieInputJoueure();
-    document.getElementById("content-chengment").innerHTML = "";
+    document.getElementById("content-chengment").innerHTML = "";///?
     players.forEach(affichiePlayers);
   }
 }
@@ -493,7 +489,6 @@ function affichiePlayers(player) {
 
     default:
       console.log("Position not found");
-      b;
   }
 }
 function openplayerModifier(playerId) {
@@ -533,14 +528,13 @@ function openplayerModifier(playerId) {
 
   oldUpdateBtn.addEventListener("click", function (e) {
     e.preventDefault();
-
     
     const playerIndex = players.findIndex(p => p.id === playerId);
     
     if (playerIndex !== -1) {
       if (player.Position === "GK") {
         players[playerIndex] = {
-          id: playerId,
+          ...players[playerIndex], // Preserve existing properties
           Name: name.value.trim(),
           Rating: rating.value.trim(),
           diving: diving.value.trim(),
@@ -550,13 +544,13 @@ function openplayerModifier(playerId) {
           speed: speed.value,
           Flag: flag.value,
           FootballClub: footballClub.value,
-          Position: position.value,
+          Position: player.Position, // Maintain original position
           positioning: positioning.value,
           Nationality: nationality.value,
         };
       } else {
         players[playerIndex] = {
-          id: playerId,
+          ...players[playerIndex], // Preserve existing properties
           Name: name.value.trim(),
           Rating: rating.value.trim(),
           Pace: pace.value.trim(),
@@ -567,7 +561,7 @@ function openplayerModifier(playerId) {
           Physical: physical.value,
           Flag: flag.value,
           FootballClub: footballClub.value,
-          Position: position.value,
+          Position: player.Position, // Maintain original position
           Nationality: nationality.value,
         };
       }
@@ -578,13 +572,11 @@ function openplayerModifier(playerId) {
       document.getElementById("content-chengment").innerHTML = "";
       players.forEach(affichiePlayers);
       location.reload();
-      form.dataset.editing = playerId; 
-
     }
+    
+    form.dataset.editing = playerId; 
   });
-
 }
-
 
 //validation de formulaire pour methode de regex
 const patterns = {
