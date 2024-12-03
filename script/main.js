@@ -400,7 +400,7 @@ function affichiePlayers(player) {
       RM.innerHTML = "";
       RM.appendChild(playersCard);
       const rmImg = RM.querySelector(".player-image img");
-      rmImg.src = './src/assets/img/joueur/mbappe.png';
+      rmImg.src = './src/assets/img/joueur/carvajal.png';
       break;
 
     case "CM1":
@@ -411,7 +411,7 @@ function affichiePlayers(player) {
       CM1.innerHTML = "";
       CM1.appendChild(playersCard);
       const cm1Img = CM1.querySelector(".player-image img");
-      cm1Img.src = './src/assets/img/joueur/marcelo.png';
+      cm1Img.src = './src/assets/img/joueur/carvajal.png';
       break;
 
     case "CM2":
@@ -422,7 +422,7 @@ function affichiePlayers(player) {
       CM2.innerHTML = "";
       CM2.appendChild(playersCard);
       const cm2Img = CM2.querySelector(".player-image img");
-      cm2Img.src = './src/assets/img/joueur/valverder-2.webp';
+      cm2Img.src = './src/assets/img/joueur/federico.png';
       break;
 
     case "LM":
