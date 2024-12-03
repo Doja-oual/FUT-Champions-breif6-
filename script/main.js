@@ -598,105 +598,75 @@ const patterns = {
   footballClub: /^[a-zA-Z0-9\s]{2,50}$/, 
  
 };
-function validateForm() {
-  let isValid = true;
-
-  // Récupérer tous les champs du formulaire
-  const fields = [
-    name,
-    flag,
-    footballClub,
-    position,
-    nationality,
-    rating,
-    pace,
-    shooting,
-    passing,
-    dribbling,
-    defending,
-    physical,
-   
-  ];
-  const field_gk=[
-    name,
-    flag,
-    footballClub,
-    position,
-    nationality,
-    diving,
-    handling,
-    kicking,
-    reflexes,
-    speed,
-    positioning,
-  ]
-  if(position.value=="GK"){
-    field_gk.forEach(( field_gk) => {
-      const pattern = patterns[ field_gk.id]; 
-      if (pattern) {
-        if (pattern.test( field_gk.value.trim())) {
-          field_gk.style.border = "1px solid green"; 
-        } else {
-          field_gk.style.border = "2px solid red"; 
-          createErrorMessage( field_gk, `Invalid ${ field_gk.id}`); 
-          isValid = false;
-        }
-      }
-    });
-  }
-  else{
-  fields.forEach((field) => {
-    const pattern = patterns[field.id]; 
-    if (pattern) {
-      if (pattern.test(field.value.trim())) {
-        field.style.border = "1px solid green"; 
-      } else {
-        field.style.border = "2px solid red"; 
-        createErrorMessage(field, `Invalid ${field.id}`); 
-        isValid = false;
-      }
-    }
-  });
-}
-  return isValid;
-}
-//fonction de remove et create msg de invalid player
+// fonction pour affichier l'erreur
 function removeErrorMessage(field) {
   const error = field.nextElementSibling;
   if (error && error.classList.contains("error-message")) {
     error.remove();
   }
 }
-// fonction pour  un message d'erreur
+//fonction pour creer ;essage d'erreur
 function createErrorMessage(field, message) {
-  removeErrorMessage(field); 
+  removeErrorMessage(field);  // Use the same removeErrorMessage function
   const error = document.createElement("div");
   error.className = "error-message";
   error.style.color = "red";
   error.innerText = message;
   field.insertAdjacentElement("afterend", error);
 }
-//fonction de remove et create msg de invalid gardian
 
-function removeErrorMessage( field_gk) {
-  const error =  field_gk.nextElementSibling;
-  if (error && error.classList.contains("error-message")) {
-    error.remove();
+// validation des form
+function validateForm() {
+  let isValid = true;
+
+  if (position.value === "GK") {
+    fields = [
+      name, 
+      flag, 
+      footballClub, 
+      position, 
+      nationality,
+      diving, 
+      handling, 
+      kicking, 
+      reflexes, 
+      speed, 
+      positioning
+    ];
+  } else {
+    fields = [
+      name, 
+      flag, 
+      footballClub, 
+      position, 
+      nationality,
+      rating, 
+      pace, 
+      shooting, 
+      passing, 
+      dribbling, 
+      defending, 
+      physical
+    ];
   }
+
+  fields.forEach((field) => {
+    const pattern = patterns[field.id];
+    if (pattern) {
+      if (pattern.test(field.value.trim())) {
+        field.style.border = "1px solid green";
+        removeErrorMessage(field); 
+      } else {
+        field.style.border = "2px solid red";
+        createErrorMessage(field, `Invalid ${field.id}`);
+        isValid = false;
+      }
+    }
+  });
+
+  return isValid;
 }
-// fonction pour  un message d'erreur
-function createErrorMessage( field_gk, message) {
-  removeErrorMessage( field_gk); 
-  const error = document.createElement("div");
-  error.className = "error-message";
-  error.style.color = "red";
-  error.innerText = message;
-  field_gk.insertAdjacentElement("afterend", error);
-}
 
-
-
-//add player
 
 document.addEventListener("DOMContentLoaded", function () {
   affichieInputJoueure();
