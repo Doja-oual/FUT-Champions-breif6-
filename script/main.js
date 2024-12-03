@@ -27,10 +27,68 @@ const reflexes = document.getElementById("reflexes");
 const speed = document.getElementById("speed");
 const positioning = document.getElementById("positioning");
 //
-
 //les button des position de card
 let playerBtn = document.getElementById("btn-player");
 let gardienBtn = document.getElementById("btn-gardien");
+
+const formation = document.getElementById("SquadInfo");
+const contentFooot =document.querySelector(".content-fooot");
+
+formation.addEventListener("change",function(){
+  switch(formation.value){
+    case"3412":
+    contentFooot.style.gridTemplateColumns = "repeat(6,1fr)"
+    contentFooot.style.gridTemplateRows = "repeat(5,1fr)"
+    contentFooot.style.gridTemplateAreas = `
+    ". ST1 ST1 ST2 ST2 ."
+    ". . CAM CAM  .  ."
+    "LM LM . . RM RM"
+    ". CM1 CM1 CM2 CM2 ."
+    "CB1 CB1 CB2 CB2 CB3 CB3 "
+    "GK GK GK GK GK GK"
+    `
+    break;
+
+    case"433":
+    contentFooot.style.gridTemplateColumns = "repeat(8,1fr)"
+    contentFooot.style.gridTemplateRows = "repeat(4,1fr)"
+    contentFooot.style.gridTemplateAreas = `
+     ". ST1 ST1 CAM CAM ST2 ST2 ."
+    ". LM LM CM1 CM1 RM RM ."
+    "CB1 CB1 CB2 CB2 CB3 CB3 CM2 CM2"
+    "GK GK GK GK GK GK GK GK"
+    `
+    break;
+
+    case"442":
+    contentFooot.style.gridTemplateColumns = "repeat(8,1fr)"
+    contentFooot.style.gridTemplateRows = "repeat(4,1fr)"
+    contentFooot.style.gridTemplateAreas = `
+     ". ST1 ST1 . . CAM CAM  ."
+    "LM LM CM1 CM1 RM RM ST2 ST2"
+    "CB1 CB1 CB2 CB2 CB3 CB3 CM2 CM2"
+    "GK GK GK GK GK GK GK GK"
+    `
+    break;
+   
+  
+  case "342":
+      contentFooot.style.gridTemplateColumns = "repeat(8, 1fr)";
+      contentFooot.style.gridTemplateRows = "repeat(5, 1fr)";
+      contentFooot.style.gridTemplateAreas = `
+      ". . ST1 ST1 ST2 ST2 . ."
+      "LM LM CM1 CM1 CM2 CM2 RM RM"
+      ". CB1 CB1 CB2 CB2 CB3 CB3 ."
+      ". . GK GK GK GK . ."
+      `;
+      break;
+
+  default:
+      console.warn("Formation not supported");
+
+  }
+})
+
 
 //fonction pour affichie les inpute de gardian
 function affichieInputJoueure() {
@@ -166,9 +224,7 @@ function affichiePlayers(player) {
             <span class="position">${player.Position}</span>
         </div>
         <div class="player-image">
-            <img src="${
-              player.PlayerImg || "./src/assets/img/joueur/federico.png"
-            }" alt="Player Image">
+            <img src="" alt="Player Image">
         </div>
         <div class="card-content">
             <div class="player-name">${player.Name}</div>
@@ -227,9 +283,7 @@ function affichiePlayers(player) {
         <span class="position">${player.Position}</span>
       </div>
       <div class="player-image">
-        <img src="${
-          player.PlayerImg || "./src/assets/img/joueur/federico.png"
-        }" alt="Player Image">
+        <img src="" alt="Player Image">
       </div>
       <div class="card-content">
         <div class="player-name">${player.Name}</div>
@@ -296,6 +350,8 @@ function affichiePlayers(player) {
       }
       GK.innerHTML = "";
       GK.appendChild(GardianCard);
+      const gkImg = GK.querySelector(".player-image img");
+      gkImg.src = './src/assets/img/joueur/courtois.webp'
       break;
 
     case "chang":
@@ -309,6 +365,8 @@ function affichiePlayers(player) {
       }
       CB1.innerHTML = "";
       CB1.appendChild(playersCard);
+      const cb1Img = CB1.querySelector(".player-image img");
+      cb1Img.src = './src/assets/img/joueur/carvajal.png';
       break;
 
     case "CB2":
@@ -318,6 +376,9 @@ function affichiePlayers(player) {
       }
       CB2.innerHTML = "";
       CB2.appendChild(playersCard);
+      const cb2Img = CB2.querySelector(".player-image img");
+      cb2Img.src = './src/assets/img/joueur/eder.webp';
+      
       break;
 
     case "CB3":
@@ -327,6 +388,8 @@ function affichiePlayers(player) {
       }
       CB3.innerHTML = "";
       CB3.appendChild(playersCard);
+      const cb3Img = CB3.querySelector(".player-image img");
+      cb3Img.src = './src/assets/img/joueur/isco.png';
       break;
 
     case "RM":
@@ -336,6 +399,8 @@ function affichiePlayers(player) {
       }
       RM.innerHTML = "";
       RM.appendChild(playersCard);
+      const rmImg = RM.querySelector(".player-image img");
+      rmImg.src = './src/assets/img/joueur/mbappe.png';
       break;
 
     case "CM1":
@@ -345,6 +410,8 @@ function affichiePlayers(player) {
       }
       CM1.innerHTML = "";
       CM1.appendChild(playersCard);
+      const cm1Img = CM1.querySelector(".player-image img");
+      cm1Img.src = './src/assets/img/joueur/marcelo.png';
       break;
 
     case "CM2":
@@ -354,6 +421,8 @@ function affichiePlayers(player) {
       }
       CM2.innerHTML = "";
       CM2.appendChild(playersCard);
+      const cm2Img = CM2.querySelector(".player-image img");
+      cm2Img.src = './src/assets/img/joueur/valverder-2.webp';
       break;
 
     case "LM":
@@ -363,6 +432,8 @@ function affichiePlayers(player) {
       }
       LM.innerHTML = "";
       LM.appendChild(playersCard);
+      const LMImg = LM.querySelector(".player-image img");
+      LMImg.src = './src/assets/img/joueur/federico.png';
       break;
     case "CAM":
       if (CAM.querySelector(".player-card")) {
@@ -371,6 +442,8 @@ function affichiePlayers(player) {
       }
       CAM.innerHTML = "";
       CAM.appendChild(playersCard);
+      const camImg = CAM.querySelector(".player-image img");
+      camImg.src = './src/assets/img/joueur/arnlod.webp';
       break;
 
     case "ST1":
@@ -380,6 +453,8 @@ function affichiePlayers(player) {
       }
       ST1.innerHTML = "";
       ST1.appendChild(playersCard);
+      const st1Img = ST1.querySelector(".player-image img");
+      st1Img.src = './src/assets/img/joueur/cristiano.webp';
       break;
 
     case "ST2":
@@ -389,6 +464,8 @@ function affichiePlayers(player) {
       }
       ST2.innerHTML = "";
       ST2.appendChild(playersCard);
+      const st2Img = ST2.querySelector(".player-image img");
+      st2Img.src = './src/assets/img/joueur/vini.webp';
       break;
 
     default:
