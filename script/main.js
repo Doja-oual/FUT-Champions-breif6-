@@ -1,4 +1,3 @@
-// localStorage.clear();
 //le id de parent  inpute de players   et gardian spicifique
 let playerInput = document.getElementById("player-input");
 let gardienInput = document.getElementById("goalkeeper-input");
@@ -41,7 +40,7 @@ formation.addEventListener("change",function(){
     contentFooot.style.gridTemplateColumns = "repeat(6,1fr)"
     contentFooot.style.gridTemplateRows = "repeat(5,1fr)"
     contentFooot.style.gridTemplateAreas = `
-    ". ST1 ST1 ST2 ST2 ."
+    ". ST1 ST1 ST2 ST2 . "
     ". . CAM CAM  .  ."
     "LM LM . . RM RM"
     ". CM1 CM1 CM2 CM2 ."
@@ -74,22 +73,20 @@ formation.addEventListener("change",function(){
    
   
   case "3421":
-      contentFooot.style.gridTemplateColumns = "repeat(8, 1fr)";
+      contentFooot.style.gridTemplateColumns = "repeat(6, 1fr)";
       contentFooot.style.gridTemplateRows = "repeat(5, 1fr)";
       contentFooot.style.gridTemplateAreas = `
-              ". . CAM CAM  .  ."
-
-      ". ST1 ST1 ST2 ST2 ."
+     ". . CAM CAM  .  ."
+    ". ST1 ST1 ST2 ST2 ."
     "LM LM . . RM RM"
-
     ". CM1 CM1 CM2 CM2 ."
     "CB1 CB1 CB2 CB2 CB3 CB3 "
-    " . GK GK GK GK GK GK ."
+    "GK GK GK GK GK GK "
       `;
       break;
 
   default:
-      console.warn("Formation not supported");
+      console.log("erreur")
 
   }
 })
@@ -123,13 +120,12 @@ function position_choice(pos){
                     <option value="CM1">CM1</option>
                     <option value="CM2">CM2</option>
                     <option value="LM">LM</option>
-                    <option value="AT">CAM</option>
+                    <option value="CAM">CAM</option>
                     <option value="RM">RM</option>
                     <option value="ST1">ST1</option>
                     <option value="ST2">ST2</option>`
 }
 
-//ajoute des evenment pour click btn
 
 // array pourles players pour l'ajoute
 let players = [];
@@ -149,11 +145,11 @@ function LocalStorageplayerform() {
 //fonction d'ajoute
 
 function addPlayers() {
-  const playerId = form.dataset.editing; //?
+  const playerId = form.dataset.editing; //syntaxe permet d'acceder aux attributs de donnees personnalisi
 
   if (position.value === "GK") {
     const gkplayerInfo = {
-      id: playerId ? parseInt(playerId) : Date.now(),//? OPIRATEUR TIRNIRE
+      id: playerId ? parseInt(playerId) : Date.now(),// OPIRATEUR TIRNIRE
       Name: name.value.trim(),
       Rating: rating.value.trim(),
       diving: diving.value.trim(),
@@ -224,7 +220,7 @@ function affichiePlayers(player) {
   const CM1 = document.getElementById("center-midfield1");
   const CM2 = document.getElementById("center-midfield2");
   const LM = document.getElementById("left-midfield");
-  const CAM = document.querySelector("attacking-midfield");
+  const CAM = document.getElementById("attacking-midfield");
   const ST1 = document.getElementById("striker1");
   const ST2 = document.getElementById("striker2");
 
@@ -266,14 +262,14 @@ function affichiePlayers(player) {
                 <div class="stat"><span class="value">${+player.Physical}</span> PHY</div>
             </div>
             <div class="card-footer">
-                <img src="${player.Flag}" alt="Nation" class="nation">
+                <img src="${player.Flag }" alt="Nation" class="nation">
                 <img src="${
                   player.LeagueImg ||
-                  "https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png"
+                  "https://cdn.sofifa.net/players/239/085/25_120.png"
                 }" alt="League" class="league">
                 <img src="${
                   player.ClubImg ||
-                  "https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png"
+                  "https://cdn.sofifa.net/flags/be.png"
                 }" alt="Club" class="club">
             </div>
         </div>
@@ -328,7 +324,7 @@ function affichiePlayers(player) {
           <img src="${player.Flag}" alt="Nation" class="nation">
           <img src="${
             player.LeagueImg ||
-            "https://cdn3.futbin.com/content/fifa25/img/league/dark/19.png"
+            "https://cdn.sofifa.net/flags/be.png"
           }" alt="League" class="league">
           <img src="${
             player.ClubImg ||
@@ -357,7 +353,6 @@ function affichiePlayers(player) {
     supprimerPlayer(player.id);
   });
 
-  // position card pour gardian
 
   // switch pour chiosir la position
 
@@ -375,6 +370,7 @@ function affichiePlayers(player) {
 
     case "chang":
       Changment.appendChild(playersCard);
+      
       break;
 
     case "CB1":
@@ -408,7 +404,7 @@ function affichiePlayers(player) {
       CB3.innerHTML = "";
       CB3.appendChild(playersCard);
       const cb3Img = CB3.querySelector(".player-image img");
-      cb3Img.src = './src/assets/img/joueur/isco.png';
+      cb3Img.src = './src/assets/img/joueur//carvajal.png';
       break;
 
     case "RM":
@@ -607,7 +603,7 @@ function removeErrorMessage(field) {
 }
 //fonction pour creer ;essage d'erreur
 function createErrorMessage(field, message) {
-  removeErrorMessage(field);  // Use the same removeErrorMessage function
+  removeErrorMessage(field); 
   const error = document.createElement("div");
   error.className = "error-message";
   error.style.color = "red";

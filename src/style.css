@@ -84,6 +84,8 @@ body {
   max-width: 100%;
 height: 100vh;
   background-image: url(./assets/img/field-bg-_1_.webp);
+  box-shadow: inset 8px 8px 8px #94b8dc, inset -8px -8px 8px #94b8dc;
+
   background-size: cover;
   background-position: center;
   height: auto;
@@ -308,6 +310,7 @@ button:hover .placeholder-img {
   align-items: center;
   gap: 25px;
   padding: 60px;
+
 }
 
 .joueus-change {
@@ -354,8 +357,9 @@ button:hover .placeholder-img {
   flex-direction: column;
   position: absolute;
   top: 40px;
-  left: 40px;
-  color: #d1a43c;
+  left: 20px;
+  color: #c1913e;
+  font-weight: 10px;
 }
 
 .rating {
@@ -474,6 +478,7 @@ transition: background 1s;
 .position-card{
   position: relative;
 }
+
 /*style de buttun de modifie et suprime*/
 
 @media  (max-width: 1024px) {
