@@ -265,7 +265,7 @@ function affichiePlayers(player) {
                 <img src="${player.Flag }" alt="Nation" class="nation">
                 <img src="${
                   player.LeagueImg ||
-                  "https://cdn.sofifa.net/players/239/085/25_120.png"
+                  "https://cdn.sofifa.net/meta/team/3468/120.png"
                 }" alt="League" class="league">
                 <img src="${
                   player.ClubImg ||
@@ -294,7 +294,7 @@ function affichiePlayers(player) {
 
       </div>
       <div class="card-header">
-        <span class="rating">${player.Rating}</span>
+            <span class="rating">${player.Rating}</span>
         <span class="position">${player.Position}</span>
       </div>
       <div class="player-image">
@@ -324,11 +324,11 @@ function affichiePlayers(player) {
           <img src="${player.Flag}" alt="Nation" class="nation">
           <img src="${
             player.LeagueImg ||
-            "https://cdn.sofifa.net/flags/be.png"
+            "https://cdn.sofifa.net/meta/team/3468/120.png"
           }" alt="League" class="league">
           <img src="${
             player.ClubImg ||
-            "https://cdn3.futbin.com/content/fifa25/img/clubs/dark/243.png"
+            "https://cdn.sofifa.net/flags/fr.png"
           }" alt="Club" class="club">
         </div>
       </div>
@@ -530,7 +530,7 @@ function openplayerModifier(playerId) {
     if (playerIndex !== -1) {
       if (player.Position === "GK") {
         players[playerIndex] = {
-          ...players[playerIndex], // Preserve existing properties
+          ...players[playerIndex], //  décomposer un objet 
           Name: name.value.trim(),
           Rating: rating.value.trim(),
           diving: diving.value.trim(),
